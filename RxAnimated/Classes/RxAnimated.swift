@@ -1,3 +1,7 @@
+//
+// [WIP]
+//
+
 import RxSwift
 import RxCocoa
 
@@ -72,6 +76,29 @@ extension AnimatedBinding where Base: UIView {
             case .default(let duration, let options):
                 UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: {
                     view.alpha = hidden ? 0.0 : 1.0
+                }, completion: nil)
+            }
+        }
+    }
+}
+
+extension AnimatedBinding where Base: UILabel {
+    public var text: UIBindingObserver<Base, String> {
+        let type = self.type
+
+        return UIBindingObserver(UIElement: self.base) { label, text in
+            switch type {
+            case .flip(let direction, let duration):
+                UIView.transition(with: label, duration: duration, options: [direction.viewTransition, UIViewAnimationOptions.allowAnimatedContent], animations: {
+                    label.text = text
+                }, completion: nil)
+            case .fade(let duration):
+                UIView.transition(with: label, duration: duration, options: [UIViewAnimationOptions.transitionCrossDissolve, UIViewAnimationOptions.allowAnimatedContent], animations: {
+                    label.text = text
+                }, completion: nil)
+            case .default(let duration, let options):
+                UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: {
+                    label.text = text
                 }, completion: nil)
             }
         }
