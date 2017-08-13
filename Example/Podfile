@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'RxAnimated_Example' do
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxAnimated', :path => '../'
+
+  target 'RxAnimated_Tests' do
+    inherit! :search_paths
+
+  end
+end
