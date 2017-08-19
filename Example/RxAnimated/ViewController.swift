@@ -29,16 +29,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // VALUE CHANGES
-
         timer
             .map { "label fade [\($0)]" }
-            .bind(to: labelFade.rx.animated(.fade(0.5)).text)
+            .bind(to: labelFade.rx.animated(.flip(.top, duration: 0.33)).text)
             .disposed(by: bag)
+
+        timer
+            .scan("adorable1") { _, count in
+                return count % 2 == 0 ? "adorable1" : "adorable2"
+            }
+            .map { name in
+                return UIImage(named: name)!
+            }
+            .bind(to: imageFlip.rx.animated(.flip(.right, duration: 1.0)).image)
+            .disposed(by: bag)
+
+        /*
+        // VALUE CHANGES
+
 
         timer
             .delay(0.33, scheduler: MainScheduler.instance)
             .map { "label flip top [\($0)]" }
+            .debug()
             .bind(to: labelFlip.rx.animated(.flip(.top, 0.33)).text)
             .disposed(by: bag)
 
@@ -74,6 +87,7 @@ class ViewController: UIViewController {
             .bind(to: imageIsHidden.rx.animated(.flip(.bottom, 0.45)).isHidden)
             .disposed(by: bag)
 
+         */
     }
 
 }
