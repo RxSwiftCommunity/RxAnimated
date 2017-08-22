@@ -65,29 +65,29 @@ public struct AnimationType<Base> {
  * utility type, offering built-in binding animations, 
  * which you can extend with your own effects as well
  */
-public struct AnimatedBinding<Base> {
-    fileprivate var base: Base
-    fileprivate var type: AnimationType<Base>
-
-    init(_ type: AnimationType<Base>, base: Base) {
-        self.base = base
-        self.type = type
-    }
-}
 
 /// adds animated bindings to view classes
 extension Reactive where Base: UIView {
-    public func animated(_ type: AnimationType<Base>) -> AnimatedBinding<Base> {
-        return AnimatedBinding(type, base: base)
+    public var animated: AnimatedSink<Base> {
+        return AnimatedSink(base: self.base)
+    }
+}
+
+public struct AnimatedSink<Base> {
+    fileprivate var type: AnimationType<Base>!
+    fileprivate var base: Base
+    init(base: Base, type: AnimationType<Base>? = nil) {
+        self.base = base
+        self.type = type
     }
 }
 
 // MARK: - built-in animated binding sink properties
 
 /// animated `isHidden` sink on `UIView`
-extension AnimatedBinding where Base: UILabel {
+extension AnimatedSink where Base: UILabel {
     public var isHidden: UIBindingObserver<Base, Bool> {
-        let animation = self.type
+        let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { view, hidden in
             animation.animate(view: view, block: {
                 view.isHidden = hidden
@@ -97,9 +97,9 @@ extension AnimatedBinding where Base: UILabel {
 }
 
 /// animated `alpha` sink on `UIView`
-extension AnimatedBinding where Base: UILabel {
+extension AnimatedSink where Base: UILabel {
     public var alpha: UIBindingObserver<Base, CGFloat> {
-        let animation = self.type
+        let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { view, alpha in
             animation.animate(view: view, block: {
                 view.alpha = alpha
@@ -109,9 +109,9 @@ extension AnimatedBinding where Base: UILabel {
 }
 
 /// animated `text` sink binding property on `UILabel`
-extension AnimatedBinding where Base: UILabel {
+extension AnimatedSink where Base: UILabel {
     public var text: UIBindingObserver<Base, String> {
-        let animation = self.type
+        let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { label, text in
             animation.animate(view: label, block: {
                 label.text = text
@@ -121,9 +121,9 @@ extension AnimatedBinding where Base: UILabel {
 }
 
 /// animated `image` binding sink on `UIImageView`
-extension AnimatedBinding where Base: UIImageView {
+extension AnimatedSink where Base: UIImageView {
     public var image: UIBindingObserver<Base, UIImage?> {
-        let animation = self.type
+        let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { imageView, image in
             animation.animate(view: imageView, block: {
                 imageView.image = image
@@ -135,9 +135,10 @@ extension AnimatedBinding where Base: UIImageView {
 // MARK: - built-in animations
 
 /// cross-dissolve animation on `UIView`
-extension AnimationType where Base: UIView {
-    public static func fade(duration: TimeInterval) -> AnimationType {
-        return AnimationType(type: .transition(.transitionCrossDissolve), duration: duration, animations: nil)
+extension AnimatedSink where Base: UILabel {
+    public func fade(duration: TimeInterval) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: .transition(.transitionCrossDissolve), duration: duration, animations: nil)
+        return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
 

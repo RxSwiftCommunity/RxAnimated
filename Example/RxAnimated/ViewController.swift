@@ -29,13 +29,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let effect = AnimationType<UILabel>.fade(duration: 1.0)
+        // VALUE CHANGES
 
         timer
             .map { "label fade [\($0)]" }
-            .bind(to: labelFade.rx.animated(effect).text)
+            .bind(to: labelFade.rx.animated.fade(duration: 0.5).text )
             .disposed(by: bag)
-
+/*
         timer
             .scan("adorable1") { _, count in
                 return count % 2 == 0 ? "adorable1" : "adorable2"
@@ -46,21 +46,17 @@ class ViewController: UIViewController {
             .bind(to: imageFlip.rx.animated(.tick(.right, duration: 1.0)).image)
             .disposed(by: bag)
 
-        /*
-        // VALUE CHANGES
-
-
         timer
             .delay(0.33, scheduler: MainScheduler.instance)
             .map { "label flip top [\($0)]" }
             .debug()
-            .bind(to: labelFlip.rx.animated(.flip(.top, 0.33)).text)
+            .bind(to: labelFlip.rx.animated(.flip(.top, duration: 0.33)).text)
             .disposed(by: bag)
 
         timer
             .delay(0.67, scheduler: MainScheduler.instance)
             .map { "label flip left [\($0)]" }
-            .bind(to: labelCustom.rx.animated(.flip(.left, 0.33)).text)
+            .bind(to: labelCustom.rx.animated(.flip(.left, duration: 0.33)).text)
             .disposed(by: bag)
 
         timer
@@ -70,7 +66,7 @@ class ViewController: UIViewController {
             .map { name in
                 return UIImage(named: name)!
             }
-            .bind(to: imageFlip.rx.animated(.flip(.right, 0.33)).image)
+            .bind(to: imageFlip.rx.animated(.flip(.right, duration: 0.33)).image)
             .disposed(by: bag)
 
         // PROPERTIES
@@ -79,7 +75,7 @@ class ViewController: UIViewController {
             .scan(0) { _, count in
                 return count % 2 == 0 ? 1 : 0
             }
-            .bind(to: imageAlpha.rx.animated(.default(duration: 0.33, options: [.curveEaseIn])).alpha)
+            .bind(to: imageAlpha.rx.animated(.).alpha)
             .disposed(by: bag)
 
         timer
