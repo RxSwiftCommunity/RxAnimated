@@ -5,23 +5,19 @@
 import RxSwift
 import RxCocoa
 
-public enum FlipDirection {
-    case left, right, top, bottom
-
-    var viewTransition: UIViewAnimationOptions {
-        switch self {
-        case .left: return .transitionFlipFromLeft
-        case .right: return .transitionFlipFromRight
-        case .top: return .transitionFlipFromTop
-        case .bottom: return .transitionFlipFromBottom
-        }
-    }
+/**
+ * enumeration of animation types:
+ * - `animation` uses `UIView.animate(duration:delay:options ...`
+ * - `transition` uses `UIView.transition(with:....`
+ * - `spring` uses `UIView.animate(duration:delay:options ...` with spring parameters
+ */
+public enum RxAnimationType {
+    case animation
+    case transition(UIViewAnimationOptions)
+    case spring(damping: CGFloat, velocity: CGFloat)
 }
 
-enum RxAnimationType {
-    case animation, transition(UIViewAnimationOptions), spring(damping: CGFloat, velocity: CGFloat)
-}
-
+/// data type describing an animation to execute at a later point
 public struct AnimationType<Base> {
     let type: RxAnimationType
     let duration: TimeInterval
@@ -65,18 +61,10 @@ public struct AnimationType<Base> {
     }
 }
 
-extension AnimationType where Base: UILabel {
-    public static func fade(duration: TimeInterval) -> AnimationType {
-        return AnimationType(type: .transition(.transitionCrossDissolve), duration: duration, animations: nil)
-    }
-}
-
-extension AnimationType where Base: UILabel {
-    public static func flip(_ direction: FlipDirection, duration: TimeInterval) -> AnimationType {
-        return AnimationType(type: .transition(direction.viewTransition), duration: duration, animations: nil)
-    }
-}
-
+/**
+ * utility type, offering built-in binding animations, 
+ * which you can extend with your own effects as well
+ */
 public struct AnimatedBinding<Base> {
     fileprivate var base: Base
     fileprivate var type: AnimationType<Base>
@@ -87,10 +75,43 @@ public struct AnimatedBinding<Base> {
     }
 }
 
+/// adds animated bindings to view classes
+extension Reactive where Base: UIView {
+    public func animated(_ type: AnimationType<Base>) -> AnimatedBinding<Base> {
+        return AnimatedBinding(type, base: base)
+    }
+}
+
+// MARK: - built-in animated binding sink properties
+
+/// animated `isHidden` sink on `UIView`
+extension AnimatedBinding where Base: UILabel {
+    public var isHidden: UIBindingObserver<Base, Bool> {
+        let animation = self.type
+        return UIBindingObserver(UIElement: self.base) { view, hidden in
+            animation.animate(view: view, block: {
+                view.isHidden = hidden
+            })
+        }
+    }
+}
+
+/// animated `alpha` sink on `UIView`
+extension AnimatedBinding where Base: UILabel {
+    public var alpha: UIBindingObserver<Base, CGFloat> {
+        let animation = self.type
+        return UIBindingObserver(UIElement: self.base) { view, alpha in
+            animation.animate(view: view, block: {
+                view.alpha = alpha
+            })
+        }
+    }
+}
+
+/// animated `text` sink binding property on `UILabel`
 extension AnimatedBinding where Base: UILabel {
     public var text: UIBindingObserver<Base, String> {
         let animation = self.type
-
         return UIBindingObserver(UIElement: self.base) { label, text in
             animation.animate(view: label, block: {
                 label.text = text
@@ -99,22 +120,10 @@ extension AnimatedBinding where Base: UILabel {
     }
 }
 
-/*
- * WIP: Proposal for extensible animation interface
- *
- * This is an example of adding a new binding animation for
- * a specific view and property:
- *
- */
-
+/// animated `image` binding sink on `UIImageView`
 extension AnimatedBinding where Base: UIImageView {
-
-    // here we add a new animated sink to UIImageView
-    // no need to do that if it's already added, like for UILabel.text
-
     public var image: UIBindingObserver<Base, UIImage?> {
         let animation = self.type
-
         return UIBindingObserver(UIElement: self.base) { imageView, image in
             animation.animate(view: imageView, block: {
                 imageView.image = image
@@ -123,100 +132,46 @@ extension AnimatedBinding where Base: UIImageView {
     }
 }
 
-extension AnimationType where Base: UIImageView {
+// MARK: - built-in animations
 
-    // here we add a new type of animation for the given view 
-    // you can add as many as you want
+/// cross-dissolve animation on `UIView`
+extension AnimationType where Base: UIView {
+    public static func fade(duration: TimeInterval) -> AnimationType {
+        return AnimationType(type: .transition(.transitionCrossDissolve), duration: duration, animations: nil)
+    }
+}
 
+/// custom flip direction enum
+public enum FlipDirection {
+    case left, right, top, bottom
+
+    var viewTransition: UIViewAnimationOptions {
+        switch self {
+        case .left: return .transitionFlipFromLeft
+        case .right: return .transitionFlipFromRight
+        case .top: return .transitionFlipFromTop
+        case .bottom: return .transitionFlipFromBottom
+        }
+    }
+}
+
+/// flip animation on `UIView`
+extension AnimationType where Base: UIView {
     public static func flip(_ direction: FlipDirection, duration: TimeInterval) -> AnimationType {
+        return AnimationType(type: .transition(direction.viewTransition), duration: duration, animations: nil)
+    }
+}
+
+
+/// example of extending RxAnimated with a custom animation
+extension AnimationType where Base: UIImageView {
+    public static func tick(_ direction: FlipDirection = .right, duration: TimeInterval) -> AnimationType {
         return AnimationType(type: .spring(damping: 0.33, velocity: 0), duration: duration, setup: { view in
             view.alpha = 0
-            view.transform = CGAffineTransform(rotationAngle: -0.15)
+            view.transform = CGAffineTransform(rotationAngle: direction == .right ?  -0.2 : 0.2)
         }, animations: { view in
             view.alpha = 1
             view.transform = CGAffineTransform.identity
         })
-    }
-}
-
-/*
- here's how you invoke the new animation on that new property
-
- Observable.from(newImage)
-   .bind(to: myImageView.rx.animated(.flip(.top, duration: 0.25)).image)
-
-*/
-
-/*
-extension AnimatedBinding where Base: UIView {
-    public var alpha: UIBindingObserver<Base, CGFloat> {
-        let type = self.type
-
-        return UIBindingObserver(UIElement: self.base) { view, alpha in
-            switch type {
-            case .flip(let direction, let duration):
-                UIView.transition(with: view, duration: duration, options: direction.viewTransition, animations: {
-                    view.alpha = alpha
-                }, completion: nil)
-            case .fade(let duration):
-                UIView.animate(withDuration: duration, delay: 0.0, options: [], animations: {
-                    view.alpha = alpha
-                }, completion: nil)
-            case .default(let duration, let options):
-                UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: {
-                    view.alpha = alpha
-                }, completion: nil)
-            }
-        }
-    }
-
-    public var isHidden: UIBindingObserver<Base, Bool> {
-        let type = self.type
-
-        return UIBindingObserver(UIElement: self.base) { view, hidden in
-            switch type {
-            case .flip(let direction, let duration):
-                UIView.transition(with: view, duration: duration, options: direction.viewTransition, animations: {
-                    view.isHidden = hidden
-                }, completion: nil)
-            case .fade(let duration):
-                UIView.transition(with: view, duration: duration, options: [.transitionCrossDissolve], animations: {
-                    view.isHidden = hidden
-                }, completion: nil)
-            case .default(let duration, let options):
-                UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: {
-                    view.alpha = hidden ? 0.0 : 1.0
-                }, completion: nil)
-            }
-        }
-    }
-}
-
-extension AnimatedBinding where Base: UIImageView {
-    public var image: UIBindingObserver<Base, UIImage> {
-        let type = self.type
-
-        return UIBindingObserver(UIElement: self.base) { view, image in
-            switch type {
-            case .flip(let direction, let duration):
-                UIView.transition(with: view, duration: duration, options: direction.viewTransition, animations: {
-                    view.image = image
-                }, completion: nil)
-            case .fade(let duration):
-                UIView.transition(with: view, duration: duration, options: [.transitionCrossDissolve], animations: {
-                    view.image = image
-                }, completion: nil)
-            case .default(let duration, let options):
-                UIView.transition(with: view, duration: duration, options: options.union([.transitionCrossDissolve]), animations: {
-                    view.image = image
-                }, completion: nil)
-            }
-        }
-    }
-}
-*/
-extension Reactive where Base: UIView {
-    public func animated(_ type: AnimationType<Base>) -> AnimatedBinding<Base> {
-        return AnimatedBinding(type, base: base)
     }
 }

@@ -29,9 +29,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let effect = AnimationType<UILabel>.fade(duration: 1.0)
+
         timer
             .map { "label fade [\($0)]" }
-            .bind(to: labelFade.rx.animated(.flip(.top, duration: 0.33)).text)
+            .bind(to: labelFade.rx.animated(effect).text)
             .disposed(by: bag)
 
         timer
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
             .map { name in
                 return UIImage(named: name)!
             }
-            .bind(to: imageFlip.rx.animated(.flip(.right, duration: 1.0)).image)
+            .bind(to: imageFlip.rx.animated(.tick(.right, duration: 1.0)).image)
             .disposed(by: bag)
 
         /*
