@@ -14,7 +14,7 @@ It comes with few predefined animation bindings, and provides a flexible mechani
 
 ## Usage
 
-### Built-in animations
+## Built-in animations
 
 When binding values with RxCocoa you write something like:
 
@@ -29,14 +29,35 @@ This updates the label's text each time the observable emits a new string value.
 
 ```swift
 textObservable
-  .bind(to: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
+  .bind(animated: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
 ```
 
 ![](etc/label-anim.gif)
 
-The same built-in fade and flip animations work on any `UIView` element. And also on specific properties like `text` for `UILabel` or `image` on `UIImageView`.
+The "difference" is that you use `bind(animated:)` instead of `bind(to:)` and you insert `animated.flip(.top, duration: 0.33)` (or one of the other provided or custom animation methods) between `rx` and the property sink you want to use, e.g. `text` in the example above.
 
-### Custom animations
+The same built-in fade and flip animations work on any `UIView` element. And also on specific properties like `UILabel.rx.text` or `UIImageView.rx.image`.
+
+### Animation List
+
+List of built-in animated sinks:
+
+```swift
+UIView.rx.animated...isHidden
+UIView.rx.animated...alpha
+UILabel.rx.animated...text
+UIImageView.rx.animated...image
+```
+
+List of the built-in animations:
+
+```swift
+UIView.rx.animated.fade(duration: TimeInterval)
+UIView.rx.animated.flip(FlipDirection, duration: TimeInterval)
+UIView.rx.animated.tick(FlipDirection, duration: TimeInterval)
+```
+
+## Custom animations
 
 You can easily add your custom bind animations to match the visual style of your app.
 

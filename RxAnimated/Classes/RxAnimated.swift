@@ -62,6 +62,21 @@ public struct AnimationType<Base> {
 }
 
 /**
+ * bind overrides to help Xcode with autocomplete
+ */
+extension Observable {
+    public func bind(animated observer: Binder<E>) -> Disposable {
+        return self.subscribe(observer)
+    }
+}
+
+extension SharedSequence {
+    public func bind(animated observer: Binder<E>) -> Disposable {
+        return self.asObservable().subscribe(observer)
+    }
+}
+
+/**
  * utility type, offering built-in binding animations, 
  * which you can extend with your own effects as well
  */
