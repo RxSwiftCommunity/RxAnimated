@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'RxAnimated'
   s.version          = '0.1.0-beta.0'
-  s.summary          = 'A short description of RxAnimated.'
+  s.summary          = 'Animated bindings for RxSwift/RxCocoa'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  	Animated bindings for RxSwift/RxCocoa
                        DESC
 
-  s.homepage         = 'https://github.com/icanzilb/RxAnimated'
+  s.homepage         = 'https://github.com/RxSwiftCommunity/RxAnimated'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'icanzilb' => 'marin@underplot.com' }
-  s.source           = { :git => 'https://github.com/icanzilb/RxAnimated.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxAnimated.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
