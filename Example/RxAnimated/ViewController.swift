@@ -20,7 +20,10 @@ class ViewController: UIViewController {
     @IBOutlet var labelCustom: UILabel!
     @IBOutlet var imageFlip: UIImageView!
 
+    @IBOutlet var labelAlpha: UILabel!
     @IBOutlet var imageAlpha: UIImageView!
+
+    @IBOutlet var labelIsHidden: UILabel!
     @IBOutlet var imageIsHidden: UIImageView!
 
     private let timer = Observable<Int>.timer(0, period: 1, scheduler: MainScheduler.instance).shareReplay(1)
@@ -29,36 +32,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // VALUE CHANGES
-
+        // Animate `text` with a crossfade
         timer
-            .map { "label fade [\($0)]" }
-            .bind(to: labelFade.rx.animated.fade(duration: 0.5).text )
-            .disposed(by: bag)
-/*
-        timer
-            .scan("adorable1") { _, count in
-                return count % 2 == 0 ? "adorable1" : "adorable2"
-            }
-            .map { name in
-                return UIImage(named: name)!
-            }
-            .bind(to: imageFlip.rx.animated(.tick(.right, duration: 1.0)).image)
+            .map({ "label fade [\($0)]" })
+            .bind(to: labelFade.rx.animated.fade(duration: 0.33).text)
             .disposed(by: bag)
 
+        // Animate `text` with a top flip
         timer
             .delay(0.33, scheduler: MainScheduler.instance)
             .map { "label flip top [\($0)]" }
-            .debug()
-            .bind(to: labelFlip.rx.animated(.flip(.top, duration: 0.33)).text)
+            .bind(to: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
             .disposed(by: bag)
 
+        // Animate `text` with a custom animation `tick`
         timer
             .delay(0.67, scheduler: MainScheduler.instance)
-            .map { "label flip left [\($0)]" }
-            .bind(to: labelCustom.rx.animated(.flip(.left, duration: 0.33)).text)
+            .map { "custom tick animation [\($0)]" }
+            .bind(to: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
             .disposed(by: bag)
 
+        // Animate `image` with a custom animation `tick`
         timer
             .scan("adorable1") { _, count in
                 return count % 2 == 0 ? "adorable1" : "adorable2"
@@ -66,26 +60,40 @@ class ViewController: UIViewController {
             .map { name in
                 return UIImage(named: name)!
             }
-            .bind(to: imageFlip.rx.animated(.flip(.right, duration: 0.33)).image)
+            .bind(to: imageFlip.rx.animated.tick(.right, duration: 1.0).image)
             .disposed(by: bag)
 
-        // PROPERTIES
-
-        timer
-            .scan(0) { _, count in
-                return count % 2 == 0 ? 1 : 0
+        // Animate `alpha` with a flip
+        let timerAlpha = timer
+            .scan(1) { acc, count in
+                var acc = acc
+                acc += 1
+                if acc > 3 { acc = 1 }
+                return acc
             }
-            .bind(to: imageAlpha.rx.animated(.).alpha)
+            .map { CGFloat(1.0 / $0 ) }
+
+        timerAlpha
+            .bind(to: imageAlpha.rx.animated.flip(.left, duration: 0.45).alpha)
+            .disposed(by: bag)
+        timerAlpha
+            .map { "alpha: \($0)" }
+            .bind(to: labelAlpha.rx.text)
             .disposed(by: bag)
 
-        timer
+        // Animate `isHidden` with a flip
+        let timerHidden = timer
             .scan(false) { _, count in
                 return count % 2 == 0 ? true : false
             }
-            .bind(to: imageIsHidden.rx.animated(.flip(.bottom, 0.45)).isHidden)
-            .disposed(by: bag)
 
-         */
+        timerHidden
+            .bind(to: imageIsHidden.rx.animated.flip(.bottom, duration: 0.45).isHidden)
+            .disposed(by: bag)
+        timerHidden
+            .map { "hidden: \($0)" }
+            .bind(to: labelIsHidden.rx.text)
+            .disposed(by: bag)
     }
 
 }

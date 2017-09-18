@@ -1,5 +1,5 @@
 //
-// [WIP]
+// [WIP] Marin Todorov, https://github.com/icanzilb
 //
 
 import RxSwift
@@ -69,7 +69,7 @@ public struct AnimationType<Base> {
 /// adds animated bindings to view classes
 extension Reactive where Base: UIView {
     public var animated: AnimatedSink<Base> {
-        return AnimatedSink(base: self.base)
+        return AnimatedSink<Base>(base: self.base)
     }
 }
 
@@ -85,7 +85,7 @@ public struct AnimatedSink<Base> {
 // MARK: - built-in animated binding sink properties
 
 /// animated `isHidden` sink on `UIView`
-extension AnimatedSink where Base: UILabel {
+extension AnimatedSink where Base: UIView {
     public var isHidden: UIBindingObserver<Base, Bool> {
         let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { view, hidden in
@@ -97,7 +97,7 @@ extension AnimatedSink where Base: UILabel {
 }
 
 /// animated `alpha` sink on `UIView`
-extension AnimatedSink where Base: UILabel {
+extension AnimatedSink where Base: UIView {
     public var alpha: UIBindingObserver<Base, CGFloat> {
         let animation = self.type!
         return UIBindingObserver(UIElement: self.base) { view, alpha in
@@ -135,9 +135,9 @@ extension AnimatedSink where Base: UIImageView {
 // MARK: - built-in animations
 
 /// cross-dissolve animation on `UIView`
-extension AnimatedSink where Base: UILabel {
+extension AnimatedSink where Base: UIView {
     public func fade(duration: TimeInterval) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: .transition(.transitionCrossDissolve), duration: duration, animations: nil)
+        let type = AnimationType<Base>(type: RxAnimationType.transition(.transitionCrossDissolve), duration: duration, animations: nil)
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
@@ -157,22 +157,24 @@ public enum FlipDirection {
 }
 
 /// flip animation on `UIView`
-extension AnimationType where Base: UIView {
-    public static func flip(_ direction: FlipDirection, duration: TimeInterval) -> AnimationType {
-        return AnimationType(type: .transition(direction.viewTransition), duration: duration, animations: nil)
+extension AnimatedSink where Base: UIView {
+    public func flip(_ direction: FlipDirection, duration: TimeInterval) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.transition(direction.viewTransition), duration: duration, animations: nil)
+        return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
 
 
 /// example of extending RxAnimated with a custom animation
-extension AnimationType where Base: UIImageView {
-    public static func tick(_ direction: FlipDirection = .right, duration: TimeInterval) -> AnimationType {
-        return AnimationType(type: .spring(damping: 0.33, velocity: 0), duration: duration, setup: { view in
+extension AnimatedSink where Base: UIView {
+    public func tick(_ direction: FlipDirection = .right, duration: TimeInterval) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.spring(damping: 0.33, velocity: 0), duration: duration, setup: { view in
             view.alpha = 0
-            view.transform = CGAffineTransform(rotationAngle: direction == .right ?  -0.2 : 0.2)
+            view.transform = CGAffineTransform(rotationAngle: direction == .right ?  -0.3 : 0.3)
         }, animations: { view in
             view.alpha = 1
             view.transform = CGAffineTransform.identity
         })
+        return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
