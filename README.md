@@ -103,12 +103,37 @@ extension AnimatedSink where Base: UIView {
 }
 ```
 
-III. Now you can use your new animation to bind subscriptions, instead of `rx.text` use `rx.animated.tick(.left, duration: 0.75).text` providing the orientation you want `.left` or `.right` and a duration:
+III. Now you can use your new animation to bind subscriptions. Here's how usually binding `UIImageView.rx.image` looks like:
+
+```swift
+imageObservable
+    .bind(to: imageView.rx.image)
+```
+And the result is non-animated binding:
+
+![](etc/custom-noanim.gif)
+
+If you use your new custom animation binding like so:
+
+```swift
+imageObservable
+    .bind(to: imageView.rx.animated.tick(.right, duration: 0.33).image)
+```
+
+The effect will be:
+
+![](etc/custom-anim.gif)
+
+And if you use the same animation on a `UILabel`:
 
 ```swift
 textObservable
     .bind(to: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
 ```
+
+![](etc/custom-label-anim.gif)
+
+The sky is the limit! (Or good taste ofc.)
 
 ## Example
 
