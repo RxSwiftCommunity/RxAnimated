@@ -86,9 +86,9 @@ public struct AnimatedSink<Base> {
 
 /// animated `isHidden` sink on `UIView`
 extension AnimatedSink where Base: UIView {
-    public var isHidden: UIBindingObserver<Base, Bool> {
+    public var isHidden: Binder<Bool> {
         let animation = self.type!
-        return UIBindingObserver(UIElement: self.base) { view, hidden in
+        return Binder(self.base) { view, hidden in
             animation.animate(view: view, block: {
                 view.isHidden = hidden
             })
@@ -98,9 +98,9 @@ extension AnimatedSink where Base: UIView {
 
 /// animated `alpha` sink on `UIView`
 extension AnimatedSink where Base: UIView {
-    public var alpha: UIBindingObserver<Base, CGFloat> {
+    public var alpha: Binder<CGFloat> {
         let animation = self.type!
-        return UIBindingObserver(UIElement: self.base) { view, alpha in
+        return Binder(self.base) { view, alpha in
             animation.animate(view: view, block: {
                 view.alpha = alpha
             })
@@ -110,10 +110,11 @@ extension AnimatedSink where Base: UIView {
 
 /// animated `text` sink binding property on `UILabel`
 extension AnimatedSink where Base: UILabel {
-    public var text: UIBindingObserver<Base, String> {
+    public var text: Binder<String> {
         let animation = self.type!
-        return UIBindingObserver(UIElement: self.base) { label, text in
+        return Binder(self.base) { label, text in
             animation.animate(view: label, block: {
+                guard let label = label as? UILabel else { return }
                 label.text = text
             })
         }
@@ -122,10 +123,11 @@ extension AnimatedSink where Base: UILabel {
 
 /// animated `image` binding sink on `UIImageView`
 extension AnimatedSink where Base: UIImageView {
-    public var image: UIBindingObserver<Base, UIImage?> {
+    public var image: Binder<UIImage?> {
         let animation = self.type!
-        return UIBindingObserver(UIElement: self.base) { imageView, image in
+        return Binder(self.base) { imageView, image in
             animation.animate(view: imageView, block: {
+                guard let imageView = imageView as? UIImageView else { return }
                 imageView.image = image
             })
         }
