@@ -34,22 +34,23 @@ class ViewController: UIViewController {
 
         // Animate `text` with a crossfade
         timer
-            .map({ "label fade [\($0)]" })
-            .bind(to: labelFade.rx.animated.fade(duration: 0.33).text)
+            .map { "label fade [\($0)]" }
+            .bind(animated: labelFade.rx.animated.fade(duration: 0.33).text)
             .disposed(by: bag)
 
         // Animate `text` with a top flip
         timer
             .delay(0.33, scheduler: MainScheduler.instance)
             .map { "label flip top [\($0)]" }
-            .bind(to: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
+            .bind(animated: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
             .disposed(by: bag)
 
-        // Animate `text` with a custom animation `tick`
+        // Animate `text` with a custom animation `tick`, as driver
         timer
             .delay(0.67, scheduler: MainScheduler.instance)
             .map { "custom tick animation [\($0)]" }
-            .bind(to: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
+            .asDriver(onErrorJustReturn: "error")
+            .bind(animated: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
             .disposed(by: bag)
 
         // Animate `image` with a custom animation `tick`
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
             .map { name in
                 return UIImage(named: name)!
             }
-            .bind(to: imageFlip.rx.animated.tick(.right, duration: 1.0).image)
+            .bind(animated: imageFlip.rx.animated.tick(.right, duration: 1.0).image)
             .disposed(by: bag)
 
         // Animate `alpha` with a flip
@@ -74,7 +75,7 @@ class ViewController: UIViewController {
             .map { CGFloat(1.0 / $0 ) }
 
         timerAlpha
-            .bind(to: imageAlpha.rx.animated.flip(.left, duration: 0.45).alpha)
+            .bind(animated: imageAlpha.rx.animated.flip(.left, duration: 0.45).alpha)
             .disposed(by: bag)
         timerAlpha
             .map { "alpha: \($0)" }
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
             }
 
         timerHidden
-            .bind(to: imageIsHidden.rx.animated.flip(.bottom, duration: 0.45).isHidden)
+            .bind(animated: imageIsHidden.rx.animated.flip(.bottom, duration: 0.45).isHidden)
             .disposed(by: bag)
         timerHidden
             .map { "hidden: \($0)" }
@@ -97,4 +98,3 @@ class ViewController: UIViewController {
     }
 
 }
-
