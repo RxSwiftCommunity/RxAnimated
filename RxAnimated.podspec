@@ -38,7 +38,7 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'RxSwift', '~> 4.0.0-alpha.1'
-  s.dependency 'RxCocoa', '~> 4.0.0-alpha.1'
+  s.dependency 'RxSwift', '~> 4.0.0-beta.0'
+  s.dependency 'RxCocoa', '~> 4.0.0-beta.0'
 
 end
