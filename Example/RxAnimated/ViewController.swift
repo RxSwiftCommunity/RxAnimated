@@ -66,11 +66,8 @@ class ViewController: UIViewController {
 
         // Animate `alpha` with a flip
         let timerAlpha = timer
-            .scan(1) { acc, count in
-                var acc = acc
-                acc += 1
-                if acc > 3 { acc = 1 }
-                return acc
+            .scan(1) { acc, _ in
+                return acc > 2 ? 1 : acc + 1
             }
             .map { CGFloat(1.0 / $0 ) }
 
