@@ -128,11 +128,15 @@ class ViewController: UIViewController {
             .bind(to: labelIsHidden.rx.text)
             .disposed(by: bag)
 
+        // disable animations when the device is working hard or user is motion sensitive
+        RxAnimated.enableDefaultPerformanceHeuristics()
 
-        //disable animations
+        // disable animations manually
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
             RxAnimated.areAnimationsEnabled.value = false
         })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0, execute: {
+            RxAnimated.areAnimationsEnabled.value = true
+        })
     }
-
 }
