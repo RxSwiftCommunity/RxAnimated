@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Markdown' do |cs|
-    cs.source_files = 'RealmContent/Animations/*'
+    #cs.source_files = 'RxAnimated/Animations/*'
   end
 
   s.frameworks = 'UIKit'
