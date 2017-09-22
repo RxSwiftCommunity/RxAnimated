@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet var labelFlip: UILabel!
     @IBOutlet var labelCustom: UILabel!
     @IBOutlet var imageFlip: UIImageView!
-
+    @IBOutlet var imageBlock: UIImageView!
+    
     @IBOutlet var labelAlpha: UILabel!
     @IBOutlet var imageAlpha: UIImageView!
 
@@ -67,6 +68,21 @@ class ViewController: UIViewController {
             .bind(animated: imageFlip.rx.animated.tick(.right, duration: 1.0).image)
             .disposed(by: bag)
 
+        var angle: CGFloat = 0.0
+        // Animate `image` with a custom block
+        timer
+            .scan("adorable1") { _, count in
+                return count % 2 == 0 ? "adorable1" : "adorable2"
+            }
+            .map { name in
+                return UIImage(named: name)!
+            }
+            .bind(animated: imageBlock.rx.animated.animation(duration: 0.5, animations: { [weak self] in
+                angle += 0.2
+                self?.imageBlock.transform = CGAffineTransform(rotationAngle: angle)
+            }).image )
+            .disposed(by: bag)
+
         // Animate layout constraint
         timer
             .scan(0) { acc, _ in
@@ -112,6 +128,11 @@ class ViewController: UIViewController {
             .bind(to: labelIsHidden.rx.text)
             .disposed(by: bag)
 
+
+        //disable animations
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
+            RxAnimated.areAnimationsEnabled.value = false
+        })
     }
 
 }

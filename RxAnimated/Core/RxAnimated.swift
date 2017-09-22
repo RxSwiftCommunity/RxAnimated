@@ -5,6 +5,14 @@
 import RxSwift
 import RxCocoa
 
+public struct RxAnimated {
+    public static let areAnimationsEnabled = Variable(true)
+    fileprivate static var areDefaultHeuristicsEnabled = false
+    public static func enableDefaultPerformanceHeuristics() {
+        areDefaultHeuristicsEnabled = true
+    }
+}
+
 // MARK: - basic animation types
 
 /**
@@ -58,6 +66,12 @@ public struct AnimationType<Base> {
         setup?(view)
 
         DispatchQueue.main.async {
+            if (RxAnimated.areDefaultHeuristicsEnabled && self.shouldDisableAnimationsViaDefaultHeuristics) || !RxAnimated.areAnimationsEnabled.value {
+                binding?()
+                self.animations?(view)
+                return
+            }
+
             switch self.type {
             case .animation:
                 UIView.animate(withDuration: self.duration, delay: 0, options: self.options, animations: {
@@ -75,6 +89,18 @@ public struct AnimationType<Base> {
                     self.animations?(view)
                 }, completion: self.completion)
             }
+        }
+    }
+
+    private var shouldDisableAnimationsViaDefaultHeuristics: Bool {
+        if #available(iOS 11, *) {
+            return ProcessInfo.processInfo.isLowPowerModeEnabled
+                || ProcessInfo.processInfo.thermalState == .serious
+                || ProcessInfo.processInfo.thermalState == .critical
+                || UIAccessibilityIsReduceMotionEnabled()
+        } else {
+            return ProcessInfo.processInfo.isLowPowerModeEnabled
+                || UIAccessibilityIsReduceMotionEnabled()
         }
     }
 }

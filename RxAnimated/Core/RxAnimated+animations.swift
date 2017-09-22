@@ -45,6 +45,11 @@ extension AnimatedSink where Base: UIView {
         })
         return AnimatedSink<Base>(base: self.base, type: type)
     }
+
+    public func animation(duration: TimeInterval, options: UIViewAnimationOptions = [], animations: @escaping ()->Void) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, animations: { _ in animations() })
+        return AnimatedSink<Base>(base: self.base, type: type)
+    }
 }
 
 extension AnimatedSink where Base: NSLayoutConstraint {
