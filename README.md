@@ -63,6 +63,7 @@ List of the built-in animations:
 UIView.rx.animated.fade(duration: TimeInterval)
 UIView.rx.animated.flip(FlipDirection, duration: TimeInterval)
 UIView.rx.animated.tick(FlipDirection, duration: TimeInterval)
+UIView.rx.animated.animation(duration: TimeInterval, animations: ()->Void)
 NSLayoutConstraint.rx.animated.layout(duration: TimeInterval)
 ```
 
