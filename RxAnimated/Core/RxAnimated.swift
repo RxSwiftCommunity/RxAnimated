@@ -54,25 +54,25 @@ public struct AnimationType<Base> {
      * - parameter view: a view to run the animations on
      * - parameter block: a custom block to inject inside the animation
      */
-    func animate(view: UIView, block: (()->Void)?) {
+    func animate(view: UIView, binding: (()->Void)?) {
         setup?(view)
 
         DispatchQueue.main.async {
             switch self.type {
             case .animation:
                 UIView.animate(withDuration: self.duration, delay: 0, options: self.options, animations: {
+                    binding?()
                     self.animations?(view)
-                    block?()
                 }, completion: self.completion)
             case .transition(let type):
                 UIView.transition(with: view, duration: self.duration, options: self.options.union(type), animations: {
+                    binding?()
                     self.animations?(view)
-                    block?()
                 }, completion: self.completion)
             case .spring(let damping, let velocity):
                 UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: self.options, animations: {
+                    binding?()
                     self.animations?(view)
-                    block?()
                 }, completion: self.completion)
             }
         }
@@ -92,13 +92,6 @@ extension SharedSequence {
     /// `bind(to:)` alias to use with animated bindings
     public func bind(animated observer: Binder<E>) -> Disposable {
         return self.asObservable().subscribe(observer)
-    }
-}
-
-extension Reactive where Base: UIView {
-    /// adds animated bindings to view classes under `rx.animated`
-    public var animated: AnimatedSink<Base> {
-        return AnimatedSink<Base>(base: self.base)
     }
 }
 

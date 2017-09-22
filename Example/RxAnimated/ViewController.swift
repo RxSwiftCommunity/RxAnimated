@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     @IBOutlet var labelIsHidden: UILabel!
     @IBOutlet var imageIsHidden: UIImageView!
 
+    @IBOutlet var leftConstraint: NSLayoutConstraint!
+    @IBOutlet var rightConstraint: NSLayoutConstraint!
+
     private let timer = Observable<Int>.timer(0, period: 1, scheduler: MainScheduler.instance).shareReplay(1)
     private let bag = DisposeBag()
 
@@ -34,21 +37,21 @@ class ViewController: UIViewController {
 
         // Animate `text` with a crossfade
         timer
-            .map { "label fade [\($0)]" }
+            .map { "Text + fade [\($0)]" }
             .bind(animated: labelFade.rx.animated.fade(duration: 0.33).text)
             .disposed(by: bag)
 
         // Animate `text` with a top flip
         timer
             .delay(0.33, scheduler: MainScheduler.instance)
-            .map { "label flip top [\($0)]" }
+            .map { "Text + flip [\($0)]" }
             .bind(animated: labelFlip.rx.animated.flip(.top, duration: 0.33).text)
             .disposed(by: bag)
 
         // Animate `text` with a custom animation `tick`, as driver
         timer
             .delay(0.67, scheduler: MainScheduler.instance)
-            .map { "custom tick animation [\($0)]" }
+            .map { "Text + custom [\($0)]" }
             .asDriver(onErrorJustReturn: "error")
             .bind(animated: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
             .disposed(by: bag)
@@ -62,6 +65,22 @@ class ViewController: UIViewController {
                 return UIImage(named: name)!
             }
             .bind(animated: imageFlip.rx.animated.tick(.right, duration: 1.0).image)
+            .disposed(by: bag)
+
+        // Animate layout constraint
+        timer
+            .scan(0) { acc, _ in
+                return acc == 0 ? 105 : 0
+            }
+            .bind(animated: leftConstraint.rx.animated.layout(duration: 0.33).constant )
+            .disposed(by: bag)
+
+        // Activate/Deactivate a constraint
+        timer
+            .scan(true) { acc, _ in
+                return !acc
+            }
+            .bind(animated: rightConstraint.rx.animated.layout(duration: 0.33).isActive )
             .disposed(by: bag)
 
         // Animate `alpha` with a flip
@@ -92,6 +111,7 @@ class ViewController: UIViewController {
             .map { "hidden: \($0)" }
             .bind(to: labelIsHidden.rx.text)
             .disposed(by: bag)
+
     }
 
 }

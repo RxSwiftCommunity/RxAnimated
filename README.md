@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 [![Platform](https://img.shields.io/cocoapods/p/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 
-> **NB:** This is a pre-release software, currently the lib works with Xcode9 GM and RxSwift4 beta.0 - and Xcode doesn't offer autocomplete when you use it.
+> **NB:** This is a pre-release software, currently the lib works with Xcode9 GM and RxSwift4 beta.0.
 
 
 **RxAnimated** provides animation interface to RxCocoa's bindings.
@@ -46,7 +46,15 @@ List of built-in animated sinks:
 UIView.rx.animated...isHidden
 UIView.rx.animated...alpha
 UILabel.rx.animated...text
+UILabel.rx.animated...attributedText
+UIControl.rx.animated...isEnabled
+UIControl.rx.animated...isSelected
+UIButton.rx.animated...title
+UIButton.rx.animated...image
+UIButton.rx.animated...backgroundImage
 UIImageView.rx.animated...image
+NSLayoutConstraint.rx.animated...constant
+NSLayoutConstraint.rx.animated...isActive
 ```
 
 List of the built-in animations:
@@ -55,7 +63,10 @@ List of the built-in animations:
 UIView.rx.animated.fade(duration: TimeInterval)
 UIView.rx.animated.flip(FlipDirection, duration: TimeInterval)
 UIView.rx.animated.tick(FlipDirection, duration: TimeInterval)
+NSLayoutConstraint.rx.animated.layout(duration: TimeInterval)
 ```
+
+Check the demo app for a number of examples.
 
 ## Custom animations
 
