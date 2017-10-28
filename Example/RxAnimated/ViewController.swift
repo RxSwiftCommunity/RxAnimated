@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet var leftConstraint: NSLayoutConstraint!
     @IBOutlet var rightConstraint: NSLayoutConstraint!
 
-    private let timer = Observable<Int>.timer(0, period: 1, scheduler: MainScheduler.instance).shareReplay(1)
+    private let timer = Observable<Int>.timer(0, period: 1, scheduler: MainScheduler.instance).share(replay: 1)
     private let bag = DisposeBag()
 
     override func viewDidLoad() {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxAnimated'
-  s.version          = '0.1.0-beta.1'
+  s.version          = '0.2.0'
   s.summary          = 'Animated bindings for RxSwift/RxCocoa'
 
   s.description      = <<-DESC
@@ -21,12 +21,12 @@ Pod::Spec.new do |s|
     s.source_files = 'RxAnimated/Core/**/*'
   end
 
-  s.subspec 'Markdown' do |cs|
-    #cs.source_files = 'RxAnimated/Animations/*'
-  end
+#  s.subspec 'Animations' do |cs|
+#    s.source_files = 'RxAnimated/Animations/*'
+#  end
 
   s.frameworks = 'UIKit'
-  s.dependency 'RxSwift', '~> 4.0.0-beta.0'
-  s.dependency 'RxCocoa', '~> 4.0.0-beta.0'
+  s.dependency 'RxSwift', '~> 4.0.0'
+  s.dependency 'RxCocoa', '~> 4.0.0'
 
 end

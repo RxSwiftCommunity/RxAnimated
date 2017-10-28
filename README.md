@@ -1,12 +1,9 @@
-# [WIP] RxAnimated
+# RxAnimated - animated bindings
 
 [![CI Status](http://img.shields.io/travis/icanzilb/RxAnimated.svg?style=flat)](https://travis-ci.org/icanzilb/RxAnimated)
 [![Version](https://img.shields.io/cocoapods/v/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 [![License](https://img.shields.io/cocoapods/l/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 [![Platform](https://img.shields.io/cocoapods/p/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
-
-> **NB:** This is a pre-release software, currently the lib works with Xcode9 GM and RxSwift4 beta.0.
-
 
 **RxAnimated** provides animation interface to RxCocoa's bindings.
 
@@ -145,28 +142,21 @@ textObservable
 
 ![](etc/custom-label-anim.gif)
 
-The sky is the limit! (Or good taste ofc.)
+The sky is the limit! (And good taste.)
 
 ## Example
 
 The demo app shows few animations in action, download the repo and give it a try.
 
-## Requirements
-
-> !! RxSwift 4 beta.0
-
 ## Installation
 
-RxAnimated is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+RxAnimated depends on RxSwift 4+.
+
+RxAnimated is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "RxAnimated"
 ```
-
-## Author
-
-Marin Todorov, https://github.com/icanzilb
 
 ## License
 

@@ -1,7 +1,3 @@
-//
-// Marin Todorov, https://github.com/icanzilb
-//
-
 import RxSwift
 import RxCocoa
 
