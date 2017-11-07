@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2837B7391FB1D887001FDB31 /* RxAnimated.h in Headers */ = {isa = PBXBuildFile; fileRef = 2837B7371FB1D887001FDB31 /* RxAnimated.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2837B7421FB1D88F001FDB31 /* RxAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2837B73E1FB1D88F001FDB31 /* RxAnimated.swift */; };
+		2837B7431FB1D88F001FDB31 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 2837B73F1FB1D88F001FDB31 /* .gitkeep */; };
+		2837B7441FB1D88F001FDB31 /* RxAnimated+bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2837B7401FB1D88F001FDB31 /* RxAnimated+bindings.swift */; };
+		2837B7451FB1D88F001FDB31 /* RxAnimated+animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2837B7411FB1D88F001FDB31 /* RxAnimated+animations.swift */; };
+		2837B7461FB1D8A4001FDB31 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72D1FB1D84B001FDB31 /* RxCocoa.framework */; };
+		2837B7471FB1D8A4001FDB31 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72C1FB1D84B001FDB31 /* RxSwift.framework */; };
+		2837B7481FB1D962001FDB31 /* RxAnimated.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B7351FB1D886001FDB31 /* RxAnimated.framework */; };
+		2837B7501FB1DBED001FDB31 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72D1FB1D84B001FDB31 /* RxCocoa.framework */; };
+		2837B7511FB1DBED001FDB31 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72D1FB1D84B001FDB31 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2837B7521FB1DBED001FDB31 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72C1FB1D84B001FDB31 /* RxSwift.framework */; };
+		2837B7531FB1DBED001FDB31 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2837B72C1FB1D84B001FDB31 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -14,8 +26,32 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2837B7541FB1DBEE001FDB31 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2837B7531FB1DBED001FDB31 /* RxSwift.framework in Embed Frameworks */,
+				2837B7511FB1DBED001FDB31 /* RxCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0C7191D437001371A8D26BC2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2837B72C1FB1D84B001FDB31 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		2837B72D1FB1D84B001FDB31 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		2837B7351FB1D886001FDB31 /* RxAnimated.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAnimated.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2837B7371FB1D887001FDB31 /* RxAnimated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAnimated.h; sourceTree = "<group>"; };
+		2837B7381FB1D887001FDB31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2837B73E1FB1D88F001FDB31 /* RxAnimated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAnimated.swift; sourceTree = "<group>"; };
+		2837B73F1FB1D88F001FDB31 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		2837B7401FB1D88F001FDB31 /* RxAnimated+bindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+bindings.swift"; sourceTree = "<group>"; };
+		2837B7411FB1D88F001FDB31 /* RxAnimated+animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+animations.swift"; sourceTree = "<group>"; };
 		4D1CED6B4F445607D244A2F5 /* RxAnimated.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = RxAnimated.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,22 +64,66 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2837B7311FB1D886001FDB31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2837B7461FB1D8A4001FDB31 /* RxCocoa.framework in Frameworks */,
+				2837B7471FB1D8A4001FDB31 /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2837B7501FB1DBED001FDB31 /* RxCocoa.framework in Frameworks */,
+				2837B7481FB1D962001FDB31 /* RxAnimated.framework in Frameworks */,
+				2837B7521FB1DBED001FDB31 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2837B72B1FB1D84A001FDB31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2837B72D1FB1D84B001FDB31 /* RxCocoa.framework */,
+				2837B72C1FB1D84B001FDB31 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2837B7361FB1D887001FDB31 /* RxAnimated */ = {
+			isa = PBXGroup;
+			children = (
+				2837B73D1FB1D88F001FDB31 /* Core */,
+				2837B7371FB1D887001FDB31 /* RxAnimated.h */,
+				2837B7381FB1D887001FDB31 /* Info.plist */,
+			);
+			path = RxAnimated;
+			sourceTree = "<group>";
+		};
+		2837B73D1FB1D88F001FDB31 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2837B73E1FB1D88F001FDB31 /* RxAnimated.swift */,
+				2837B73F1FB1D88F001FDB31 /* .gitkeep */,
+				2837B7401FB1D88F001FDB31 /* RxAnimated+bindings.swift */,
+				2837B7411FB1D88F001FDB31 /* RxAnimated+animations.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example */,
+				2837B7361FB1D887001FDB31 /* RxAnimated */,
 				607FACD11AFB9204008FA782 /* Products */,
+				2837B72B1FB1D84A001FDB31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* Example.app */,
+				2837B7351FB1D886001FDB31 /* RxAnimated.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,7 +169,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2837B7321FB1D886001FDB31 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2837B7391FB1D887001FDB31 /* RxAnimated.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		2837B7341FB1D886001FDB31 /* RxAnimated */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2837B73A1FB1D887001FDB31 /* Build configuration list for PBXNativeTarget "RxAnimated" */;
+			buildPhases = (
+				2837B7301FB1D886001FDB31 /* Sources */,
+				2837B7311FB1D886001FDB31 /* Frameworks */,
+				2837B7321FB1D886001FDB31 /* Headers */,
+				2837B7331FB1D886001FDB31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RxAnimated;
+			productName = RxAnimated;
+			productReference = 2837B7351FB1D886001FDB31 /* RxAnimated.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		607FACCF1AFB9204008FA782 /* Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Example" */;
@@ -96,6 +206,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
+				2837B7541FB1DBEE001FDB31 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -116,6 +227,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					2837B7341FB1D886001FDB31 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -136,11 +251,20 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* Example */,
+				2837B7341FB1D886001FDB31 /* RxAnimated */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2837B7331FB1D886001FDB31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2837B7431FB1D88F001FDB31 /* .gitkeep in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +278,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2837B7301FB1D886001FDB31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2837B7441FB1D88F001FDB31 /* RxAnimated+bindings.swift in Sources */,
+				2837B7451FB1D88F001FDB31 /* RxAnimated+animations.swift in Sources */,
+				2837B7421FB1D88F001FDB31 /* RxAnimated.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +319,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2837B73B1FB1D887001FDB31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RxAnimated/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorBulyga.RxAnimated;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2837B73C1FB1D887001FDB31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RxAnimated/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorBulyga.RxAnimated;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -288,7 +492,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/Example/RxAnimated/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -303,7 +511,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/Example/RxAnimated/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -317,6 +529,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2837B73A1FB1D887001FDB31 /* Build configuration list for PBXNativeTarget "RxAnimated" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2837B73B1FB1D887001FDB31 /* Debug */,
+				2837B73C1FB1D887001FDB31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "RxAnimated" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
