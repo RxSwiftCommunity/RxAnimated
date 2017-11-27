@@ -87,7 +87,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for RxAnimated */,
-				63B65A931FB9F59100C630B5 /* RxAnimated-Example-AppleTV */,
+				63B65A931FB9F59100C630B5 /* Example for RxAnimated AppleTV */,
 				607FACD11AFB9204008FA782 /* Products */,
 				18B31256E26057A42427A9D8 /* Pods */,
 				C5DC889F0D573D4FC922070D /* Frameworks */,
@@ -135,7 +135,7 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		63B65A931FB9F59100C630B5 /* RxAnimated-Example-AppleTV */ = {
+		63B65A931FB9F59100C630B5 /* Example for RxAnimated AppleTV */ = {
 			isa = PBXGroup;
 			children = (
 				63B65A941FB9F59200C630B5 /* AppDelegate.swift */,
@@ -144,7 +144,7 @@
 				63B65A9B1FB9F59200C630B5 /* Assets.xcassets */,
 				63B65A9D1FB9F59200C630B5 /* Info.plist */,
 			);
-			path = "RxAnimated-Example-AppleTV";
+			path = "Example for RxAnimated AppleTV";
 			sourceTree = "<group>";
 		};
 		C5DC889F0D573D4FC922070D /* Frameworks */ = {
@@ -569,7 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "RxAnimated-Example-AppleTV/Info.plist";
+				INFOPLIST_FILE = "Example for RxAnimated AppleTV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.RxAnimated-ExampleAppleTV.RxAnimated-Example-AppleTV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -594,7 +594,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "RxAnimated-Example-AppleTV/Info.plist";
+				INFOPLIST_FILE = "Example for RxAnimated AppleTV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.RxAnimated-ExampleAppleTV.RxAnimated-Example-AppleTV";
 				PRODUCT_NAME = "$(TARGET_NAME)";

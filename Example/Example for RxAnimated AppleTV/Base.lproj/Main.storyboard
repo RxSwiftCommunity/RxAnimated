@@ -84,9 +84,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AL constraint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL7-OL-Mb5">
-                                <rect key="frame" x="1165" y="561" width="228" height="46"/>
+                                <rect key="frame" x="1146" y="561" width="228" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="228" id="JfP-1t-ATp"/>
+                                    <constraint firstAttribute="width" constant="228" id="JfP-1t-ATp"/>
                                     <constraint firstAttribute="height" constant="46" id="Pvk-WJ-7dv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -179,6 +179,7 @@
                             <constraint firstItem="Sge-eW-vIh" firstAttribute="top" secondItem="B76-Ud-DB3" secondAttribute="bottom" constant="20" id="cwV-pg-3yo"/>
                             <constraint firstItem="OQO-ks-F2H" firstAttribute="top" secondItem="uJM-jK-XEo" secondAttribute="bottom" constant="35" id="dSN-S7-8aJ"/>
                             <constraint firstItem="B76-Ud-DB3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e5G-ed-eEj"/>
+                            <constraint firstItem="KL7-OL-Mb5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" priority="500" constant="500" id="eLr-d6-LmF"/>
                             <constraint firstItem="OQO-ks-F2H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="el3-Ca-Jnf"/>
                             <constraint firstItem="B76-Ud-DB3" firstAttribute="top" secondItem="KL7-OL-Mb5" secondAttribute="bottom" constant="38" id="g9P-Gk-CJQ"/>
                             <constraint firstItem="uJM-jK-XEo" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" constant="542" id="gGd-yw-LIg"/>
@@ -188,6 +189,7 @@
                             <constraint firstItem="uJM-jK-XEo" firstAttribute="top" secondItem="asc-zQ-xn2" secondAttribute="bottom" constant="50" id="kyi-SI-5Ij"/>
                             <constraint firstItem="yYv-g7-9gq" firstAttribute="top" secondItem="Sge-eW-vIh" secondAttribute="bottom" constant="1" id="ovH-bd-5Up"/>
                             <constraint firstItem="9iv-Z4-t0k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pCt-Po-ryU" userLabel="left constraint"/>
+                            <constraint firstItem="KL7-OL-Mb5" firstAttribute="centerX" secondItem="wu6-TO-1qx" secondAttribute="centerX" constant="300" id="qNa-ez-Sco"/>
                             <constraint firstItem="3DH-h8-Ekd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wu6-TO-1qx" secondAttribute="leading" id="v5J-0E-LaE"/>
                             <constraint firstItem="lcj-RN-drW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v8o-sF-h5L"/>
                             <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="1rj-cL-g98" secondAttribute="trailing" constant="542" id="woT-3G-HmO"/>
@@ -196,6 +198,11 @@
                             <constraint firstItem="9iv-Z4-t0k" firstAttribute="top" secondItem="OQO-ks-F2H" secondAttribute="bottom" constant="13" id="zdp-JO-wR9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gKh-Qo-whA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageAlpha" destination="Sge-eW-vIh" id="2wq-vO-bst"/>
@@ -207,8 +214,8 @@
                         <outlet property="labelFade" destination="trZ-TO-g6L" id="boy-mO-3re"/>
                         <outlet property="labelFlip" destination="asc-zQ-xn2" id="WMy-av-Xeo"/>
                         <outlet property="labelIsHidden" destination="3DH-h8-Ekd" id="oN1-eC-Ju6"/>
-                        <outlet property="leftConstraint" destination="pCt-Po-ryU" id="1vh-O6-ngS"/>
-                        <outlet property="rightConstraint" destination="gKh-Qo-whA" id="9hb-dP-UGT"/>
+                        <outlet property="leftConstraint" destination="pCt-Po-ryU" id="B9G-rj-hmy"/>
+                        <outlet property="rightConstraint" destination="qNa-ez-Sco" id="LMO-78-7BT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
