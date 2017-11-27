@@ -44,7 +44,7 @@ public struct AnimationType<Base> {
      * - parameter animations: block of code to be executed during animation
      * - parameter completion: block of code to be executed after the animation has finished
      */
-    init(type: RxAnimationType, duration: TimeInterval, options: UIViewAnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView)->Void)?, completion: ((Bool)->Void)? = nil) {
+    public init(type: RxAnimationType, duration: TimeInterval, options: UIViewAnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView)->Void)?, completion: ((Bool)->Void)? = nil) {
         self.type = type
         self.duration = duration
         self.options = options
@@ -120,13 +120,13 @@ extension SharedSequence {
 /// an animations proxy data type
 public struct AnimatedSink<Base> {
     internal var type: AnimationType<Base>!
-    internal var base: Base
+    public var base: Base
 
     /**
      * - parameter base: base class of this animation sink (UIView, UILabel, etc)
      * - parameter type: an animation future to be executed when the binding recieves an element
      */
-    init(base: Base, type: AnimationType<Base>? = nil) {
+    public init(base: Base, type: AnimationType<Base>? = nil) {
         self.base = base
         self.type = type
     }
