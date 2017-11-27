@@ -89,7 +89,7 @@ public struct AnimationType<Base> {
     }
 
     private var shouldDisableAnimationsViaDefaultHeuristics: Bool {
-        if #available(iOS 11, *) {
+        if #available(iOS 11, tvOS 11, *) {
             return ProcessInfo.processInfo.isLowPowerModeEnabled
                 || ProcessInfo.processInfo.thermalState == .serious
                 || ProcessInfo.processInfo.thermalState == .critical
