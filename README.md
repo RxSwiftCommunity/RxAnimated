@@ -158,6 +158,21 @@ RxAnimated is available through [CocoaPods](http://cocoapods.org). To install it
 pod "RxAnimated"
 ```
 
+### Carthage
+
+RxAnimated also available through [Carthage](https://github.com/Carthage/Carthage).
+
+Add this to `Cartfile`
+
+```
+github "RxAnimated/RxAnimated" ~> 0.4.1
+```
+
+```bash
+$ carthage update
+```
+
+
 ## License
 
 RxAnimated is available under the MIT license. See the LICENSE file for more info.
