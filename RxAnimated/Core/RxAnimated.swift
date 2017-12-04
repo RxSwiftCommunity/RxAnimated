@@ -58,7 +58,7 @@ public struct AnimationType<Base> {
      * - parameter view: a view to run the animations on
      * - parameter block: a custom block to inject inside the animation
      */
-    func animate(view: UIView, binding: (()->Void)?) {
+    public func animate(view: UIView, binding: (()->Void)?) {
         setup?(view)
 
         DispatchQueue.main.async {
@@ -119,7 +119,7 @@ extension SharedSequence {
 
 /// an animations proxy data type
 public struct AnimatedSink<Base> {
-    internal var type: AnimationType<Base>!
+    public var type: AnimationType<Base>!
     public var base: Base
 
     /**
