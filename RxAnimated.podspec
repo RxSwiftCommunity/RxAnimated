@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 #  end
 
   s.frameworks = 'UIKit'
-  s.dependency 'RxSwift', '~> 4.0.0'
-  s.dependency 'RxCocoa', '~> 4.0.0'
+  s.dependency 'RxSwift', '~> 4.0'
+  s.dependency 'RxCocoa', '~> 4.0'
 
 end
