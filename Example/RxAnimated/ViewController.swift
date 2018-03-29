@@ -133,10 +133,10 @@ class ViewController: UIViewController {
 
         // disable animations manually
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
-            RxAnimated.areAnimationsEnabled.value = false
+            RxAnimated.areAnimationsEnabled.accept(false)
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 15.0, execute: {
-            RxAnimated.areAnimationsEnabled.value = true
+            RxAnimated.areAnimationsEnabled.accept(true)
         })
     }
 }

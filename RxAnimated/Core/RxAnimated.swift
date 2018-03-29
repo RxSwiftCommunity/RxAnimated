@@ -2,7 +2,7 @@ import RxSwift
 import RxCocoa
 
 public struct RxAnimated {
-    public static let areAnimationsEnabled = Variable(true)
+    public static let areAnimationsEnabled = BehaviorRelay(value: true)
     fileprivate static var areDefaultHeuristicsEnabled = false
     public static func enableDefaultPerformanceHeuristics() {
         areDefaultHeuristicsEnabled = true
