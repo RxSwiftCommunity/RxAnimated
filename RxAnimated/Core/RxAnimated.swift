@@ -120,7 +120,7 @@ extension SharedSequence {
 /// an animations proxy data type
 public struct AnimatedSink<Base> {
     public var type: AnimationType<Base>!
-    public var base: Base
+    unretained public var base: Base
 
     /**
      * - parameter base: base class of this animation sink (UIView, UILabel, etc)
