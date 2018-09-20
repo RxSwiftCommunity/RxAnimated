@@ -19,7 +19,7 @@ public struct RxAnimated {
  */
 public enum RxAnimationType {
     case animation
-    case transition(UIViewAnimationOptions)
+    case transition(UIView.AnimationOptions)
     case spring(damping: CGFloat, velocity: CGFloat)
 }
 
@@ -29,7 +29,7 @@ public enum RxAnimationType {
 public struct AnimationType<Base> {
     let type: RxAnimationType
     let duration: TimeInterval
-    let options: UIViewAnimationOptions
+    let options: UIView.AnimationOptions
 
     let setup: ((UIView)->Void)?
     let animations: ((UIView)->Void)?
@@ -44,7 +44,7 @@ public struct AnimationType<Base> {
      * - parameter animations: block of code to be executed during animation
      * - parameter completion: block of code to be executed after the animation has finished
      */
-    public init(type: RxAnimationType, duration: TimeInterval, options: UIViewAnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView)->Void)?, completion: ((Bool)->Void)? = nil) {
+    public init(type: RxAnimationType, duration: TimeInterval, options: UIView.AnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView)->Void)?, completion: ((Bool)->Void)? = nil) {
         self.type = type
         self.duration = duration
         self.options = options
@@ -93,10 +93,10 @@ public struct AnimationType<Base> {
             return ProcessInfo.processInfo.isLowPowerModeEnabled
                 || ProcessInfo.processInfo.thermalState == .serious
                 || ProcessInfo.processInfo.thermalState == .critical
-                || UIAccessibilityIsReduceMotionEnabled()
+                || UIAccessibility.isReduceMotionEnabled
         } else {
             return ProcessInfo.processInfo.isLowPowerModeEnabled
-                || UIAccessibilityIsReduceMotionEnabled()
+                || UIAccessibility.isReduceMotionEnabled
         }
     }
 }

@@ -5,7 +5,7 @@ import RxCocoa
 public enum FlipDirection {
     case left, right, top, bottom
 
-    var viewTransition: UIViewAnimationOptions {
+    var viewTransition: UIView.AnimationOptions {
         switch self {
         case .left: return .transitionFlipFromLeft
         case .right: return .transitionFlipFromRight
@@ -42,7 +42,7 @@ extension AnimatedSink where Base: UIView {
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 
-    public func animation(duration: TimeInterval, options: UIViewAnimationOptions = [], animations: @escaping ()->Void) -> AnimatedSink<Base> {
+    public func animation(duration: TimeInterval, options: UIView.AnimationOptions = [], animations: @escaping ()->Void) -> AnimatedSink<Base> {
         let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, animations: { _ in animations() })
         return AnimatedSink<Base>(base: self.base, type: type)
     }

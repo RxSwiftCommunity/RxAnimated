@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxAnimated'
-  s.version          = '0.4.1'
+  s.version          = '0.5.0'
   s.summary          = 'Animated bindings for RxSwift/RxCocoa'
 
   s.description      = <<-DESC
@@ -27,7 +27,9 @@ Pod::Spec.new do |s|
 #  end
 
   s.frameworks = 'UIKit'
-  s.dependency 'RxSwift', '~> 4.0'
-  s.dependency 'RxCocoa', '~> 4.0'
+  s.dependency 'RxSwift', '~> 4.3'
+  s.dependency 'RxCocoa', '~> 4.3'
+
+  s.swift_version = "4.2"
 
 end
