@@ -31,9 +31,9 @@ public struct AnimationType<Base> {
     let duration: TimeInterval
     let options: UIView.AnimationOptions
 
-    let setup: ((UIView)->Void)?
-    let animations: ((UIView)->Void)?
-    let completion: ((Bool)->Void)?
+    let setup: ((UIView) -> Void)?
+    let animations: ((UIView) -> Void)?
+    let completion: ((Bool) -> Void)?
 
     /**
      * creates an animation "future"
@@ -44,7 +44,7 @@ public struct AnimationType<Base> {
      * - parameter animations: block of code to be executed during animation
      * - parameter completion: block of code to be executed after the animation has finished
      */
-    public init(type: RxAnimationType, duration: TimeInterval, options: UIView.AnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView)->Void)?, completion: ((Bool)->Void)? = nil) {
+    public init(type: RxAnimationType, duration: TimeInterval, options: UIView.AnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView) -> Void)?, completion: ((Bool) -> Void)? = nil) {
         self.type = type
         self.duration = duration
         self.options = options
@@ -58,7 +58,7 @@ public struct AnimationType<Base> {
      * - parameter view: a view to run the animations on
      * - parameter block: a custom block to inject inside the animation
      */
-    public func animate(view: UIView, binding: (()->Void)?) {
+    public func animate(view: UIView, binding: (() -> Void)?) {
         setup?(view)
 
         DispatchQueue.main.async {
