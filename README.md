@@ -153,10 +153,20 @@ The demo app shows few animations in action, download the repo and give it a try
 
 RxAnimated depends on RxSwift 4+.
 
+### Cocoapods
+
 RxAnimated is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "RxAnimated"
+```
+
+### Carthage
+
+In your Cartfile:
+
+```ruby
+github "RxSwiftCommunity/RxAnimated"
 ```
 
 ## License
