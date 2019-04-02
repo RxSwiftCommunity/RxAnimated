@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 [![License](https://img.shields.io/cocoapods/l/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
 [![Platform](https://img.shields.io/cocoapods/p/RxAnimated.svg?style=flat)](http://cocoapods.org/pods/RxAnimated)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 **RxAnimated** provides animation interface to RxCocoa's bindings.
 
