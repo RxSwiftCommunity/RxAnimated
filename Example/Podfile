@@ -1,6 +1,6 @@
 use_frameworks!
 
-target 'RxAnimated_Example' do
+target 'Example' do
 
   pod 'RxSwift', '~> 4.3.0'
   pod 'RxCocoa', '~> 4.3.0'
@@ -8,7 +8,7 @@ target 'RxAnimated_Example' do
 
 end
 
-target 'RxAnimated-Example-AppleTV' do
+target 'Example_tvOS' do
 
   pod 'RxSwift', '~> 4.3.0'
   pod 'RxCocoa', '~> 4.3.0'

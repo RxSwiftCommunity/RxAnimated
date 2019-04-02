@@ -1,5 +1,6 @@
 import RxSwift
 import RxCocoa
+import UIKit
 
 public struct RxAnimated {
     public static let areAnimationsEnabled = BehaviorRelay(value: true)

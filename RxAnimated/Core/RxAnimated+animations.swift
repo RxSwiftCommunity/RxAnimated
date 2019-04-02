@@ -1,5 +1,6 @@
 import RxSwift
 import RxCocoa
+import UIKit
 
 /// custom direction enumeration
 public enum FlipDirection {
