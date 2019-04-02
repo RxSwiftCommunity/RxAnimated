@@ -1,0 +1,17 @@
+use_frameworks!
+
+target 'Example' do
+
+  pod 'RxSwift', '~> 4.3.0'
+  pod 'RxCocoa', '~> 4.3.0'
+  pod 'RxAnimated', :path => '../'
+
+end
+
+target 'Example_tvOS' do
+
+  pod 'RxSwift', '~> 4.3.0'
+  pod 'RxCocoa', '~> 4.3.0'
+  pod 'RxAnimated', :path => '../'
+
+end
