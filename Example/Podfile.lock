@@ -1,0 +1,39 @@
+PODS:
+  - RxAnimated (0.6.0):
+    - RxAnimated/Core (= 0.6.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxAnimated/Core (0.6.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+
+DEPENDENCIES:
+  - RxAnimated (from `../`)
+  - RxCocoa (~> 5.0.0)
+  - RxSwift (~> 5.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  RxAnimated:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RxAnimated: 990036fbb8db293de9fb1fc56f3808d5f9ff57a6
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+
+PODFILE CHECKSUM: 8dd3d5fe3ba97bba28d15faa72549aeced7cad81
+
+COCOAPODS: 1.6.1

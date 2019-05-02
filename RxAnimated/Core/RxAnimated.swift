@@ -105,14 +105,14 @@ public struct AnimationType<Base> {
 
 extension Observable {
     /// `bind(to:)` alias to use with animated bindings
-    public func bind(animated observer: Binder<E>) -> Disposable {
+    public func bind(animated observer: Binder<Element>) -> Disposable {
         return self.subscribe(observer)
     }
 }
 
 extension SharedSequence {
     /// `bind(to:)` alias to use with animated bindings
-    public func bind(animated observer: Binder<E>) -> Disposable {
+    public func bind(animated observer: Binder<Element>) -> Disposable {
         return self.asObservable().subscribe(observer)
     }
 }
