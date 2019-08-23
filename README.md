@@ -150,7 +150,7 @@ The demo app shows few animations in action, download the repo and give it a try
 
 ## Installation
 
-RxAnimated depends on RxSwift 4+.
+RxAnimated depends on RxSwift 5+.
 
 RxAnimated is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
