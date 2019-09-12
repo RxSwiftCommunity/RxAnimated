@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxAnimated'
-  s.version          = '0.6.0'
+  s.version          = '0.6.1'
   s.summary          = 'Animated bindings for RxSwift/RxCocoa'
 
   s.description      = <<-DESC
