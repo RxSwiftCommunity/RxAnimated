@@ -35,8 +35,7 @@ public struct AnimationType<Base> {
     let animations: ((UIView) -> Void)?
     let completion: ((Bool) -> Void)?
     
-    private var isLazy: Bool
-    private var lazyLoaded: Bool = false
+    private let lazyDefiner = LazyDefiner()
 
     /**
      * creates an animation "future"
@@ -54,17 +53,25 @@ public struct AnimationType<Base> {
         self.setup = setup
         self.animations = animations
         self.completion = completion
-        self.isLazy = false
     }
     
-    var lazy: AnimationType {
-        var lazy = self
-        lazy.isLazy = true
-        return lazy
+    public var lazy: AnimationType {
+        self.lazyDefiner.isLazy = true
+        return self
     }
     
-    internal func animate(view: UIView, binding: (() -> Void)?, areAnimationsEnabled: Bool) {
+    /**
+     * executes the setup -> animations -> block -> completion blocks chain
+     * - parameter view: a view to run the animations on
+     * - parameter block: a custom block to inject inside the animation
+     */
+    
+    public func animate(view: UIView, binding: (() -> Void)?) {
         setup?(view)
+        let areHeuristicsEnabled = RxAnimated.areDefaultHeuristicsEnabled && self.shouldDisableAnimationsViaDefaultHeuristics
+        let areAnimationsEnabled = !areHeuristicsEnabled && RxAnimated.areAnimationsEnabled.value && lazyDefiner.isAnimationEnabled
+        lazyDefiner.toggleIfNeeded()
+
         DispatchQueue.main.async {
             guard areAnimationsEnabled else {
                 binding?()
@@ -89,25 +96,6 @@ public struct AnimationType<Base> {
                 }, completion: self.completion)
             }
         }
-    }
-    
-    public func animate(view: UIView, binding: (() -> Void)?) {
-        let areHeuristicsEnabled = RxAnimated.areDefaultHeuristicsEnabled && self.shouldDisableAnimationsViaDefaultHeuristics
-        let areAnimationsEnabled = !areHeuristicsEnabled && RxAnimated.areAnimationsEnabled.value
-        animate(view: view, binding: binding, areAnimationsEnabled: areAnimationsEnabled)
-    }
-
-    /**
-     * executes the setup -> animations -> block -> completion blocks chain
-     * - parameter view: a view to run the animations on
-     * - parameter block: a custom block to inject inside the animation
-     */
-    public mutating func lazyAnimate(view: UIView, binding: (() -> Void)?) {
-        let areHeuristicsEnabled = RxAnimated.areDefaultHeuristicsEnabled && self.shouldDisableAnimationsViaDefaultHeuristics
-        let isLazyLoaded = isLazy && !lazyLoaded
-        let areAnimationsEnabled = !areHeuristicsEnabled && RxAnimated.areAnimationsEnabled.value && !isLazyLoaded
-        isLazyLoaded ? lazyLoaded.toggle() : ()
-        animate(view: view, binding: binding, areAnimationsEnabled: areAnimationsEnabled)
     }
 
     private var shouldDisableAnimationsViaDefaultHeuristics: Bool {
@@ -151,5 +139,21 @@ public struct AnimatedSink<Base> {
     public init(base: Base, type: AnimationType<Base>? = nil) {
         self.base = base
         self.type = type
+    }
+}
+
+internal class LazyDefiner {
+    var isLazy: Bool = false
+    var lazyLoaded: Bool = false
+    
+    init() {}
+    
+    var isAnimationEnabled: Bool {
+        return !isLazy || lazyLoaded
+    }
+    
+
+    func toggleIfNeeded() {
+        (isLazy && !lazyLoaded) ? lazyLoaded.toggle() : ()
     }
 }
