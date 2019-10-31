@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet var labelFade: UILabel!
     @IBOutlet var labelFlip: UILabel!
     @IBOutlet var labelCustom: UILabel!
+    @IBOutlet var labelLazy: UILabel!
     @IBOutlet var imageFlip: UIImageView!
     @IBOutlet var imageBlock: UIImageView!
     
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
 
         // Animate `text` with a crossfade
         timer
+            .delay(.seconds(1), scheduler: MainScheduler.instance)
             .map { "Text + fade [\($0)]" }
             .bind(animated: labelFade.rx.animated.fade(duration: 0.33).text)
             .disposed(by: bag)
@@ -57,6 +59,12 @@ class ViewController: UIViewController {
             .map { "Text + custom [\($0)]" }
             .asDriver(onErrorJustReturn: "error")
             .bind(animated: labelCustom.rx.animated.tick(.left, duration: 0.75).text)
+            .disposed(by: bag)
+        
+        timer
+            .delay(.seconds(1), scheduler: MainScheduler.instance)
+            .map { "Text + Lazy Fade [\($0)]" }
+            .bind(animated: labelLazy.rx.animated.fade(duration: 0.75).lazy.text)
             .disposed(by: bag)
 
         // Animate `image` with a custom animation `tick`

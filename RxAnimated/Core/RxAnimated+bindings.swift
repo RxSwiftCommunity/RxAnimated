@@ -10,23 +10,36 @@ extension Reactive where Base: UIView {
     }
 }
 
+extension AnimatedSink {
+    public var lazy: AnimatedSink {
+        return AnimatedSink(base: self.base, type: self.type.lazy)
+    }
+}
+
+extension AnimatedSink where Base: UIView {
+    public func bind<T>(with animation: @escaping ((Base, T)  -> Void)) -> Binder<T> {
+        var mutableSelf = self
+        return Binder(mutableSelf.base) { view, value in
+            mutableSelf.type.lazyAnimate(view: view) {
+                animation(view, value)
+            }
+        }
+    }
+}
+
 // MARK: - UIView
 extension AnimatedSink where Base: UIView {
     public var isHidden: Binder<Bool> {
-        return Binder(self.base) { view, hidden in
-            self.type.animate(view: view) {
-                view.isHidden = hidden
-            }
+        return bind { view, hidden in
+            view.isHidden = hidden
         }
     }
 }
 
 extension AnimatedSink where Base: UIView {
     public var alpha: Binder<CGFloat> {
-        return Binder(self.base) { view, alpha in
-            self.type.animate(view: view) {
-                view.alpha = alpha
-            }
+        return bind { view, alpha in
+            view.alpha = alpha
         }
     }
 }
@@ -34,17 +47,13 @@ extension AnimatedSink where Base: UIView {
 // MARK: - UILabel
 extension AnimatedSink where Base: UILabel {
     public var text: Binder<String> {
-        return Binder(self.base) { label, text in
-            self.type.animate(view: label) {
-                (label as UILabel).text = text
-            }
+        return bind { label, text in
+            (label as UILabel).text = text
         }
     }
     public var attributedText: Binder<NSAttributedString> {
-        return Binder(self.base) { label, text in
-            self.type.animate(view: label) {
-                (label as UILabel).attributedText = text
-            }
+        return bind { label, text in
+            (label as UILabel).attributedText = text
         }
     }
 }
@@ -52,17 +61,14 @@ extension AnimatedSink where Base: UILabel {
 // MARK: - UIControl
 extension AnimatedSink where Base: UIControl {
     public var isEnabled: Binder<Bool> {
-        return Binder(self.base) { control, enabled in
-            self.type.animate(view: control) {
-                (control as UIControl).isEnabled = enabled
-            }
+        return bind { control, enabled in
+            (control as UIControl).isEnabled = enabled
         }
     }
+
     public var isSelected: Binder<Bool> {
-        return Binder(self.base) { control, selected in
-            self.type.animate(view: control) {
-                (control as UIControl).isSelected = selected
-            }
+        return bind { control, selected in
+            (control as UIControl).isSelected = selected
         }
     }
 }
@@ -70,24 +76,18 @@ extension AnimatedSink where Base: UIControl {
 // MARK: - UIButton
 extension AnimatedSink where Base: UIButton {
     public var title: Binder<String> {
-        return Binder(self.base) { button, title in
-            self.type.animate(view: button) {
-                (button as UIButton).setTitle(title, for: button.state)
-            }
+        return bind { button, title in
+            (button as UIButton).setTitle(title, for: button.state)
         }
     }
     public var image: Binder<UIImage?> {
-        return Binder(self.base) { button, image in
-            self.type.animate(view: button) {
-                (button as UIButton).setImage(image, for: button.state)
-            }
+        return bind { button, image in
+            (button as UIButton).setImage(image, for: button.state)
         }
     }
     public var backgroundImage: Binder<UIImage?> {
-        return Binder(self.base) { button, image in
-            self.type.animate(view: button) {
-                (button as UIButton).setBackgroundImage(image, for: button.state)
-            }
+        return bind { button, image in
+            (button as UIButton).setBackgroundImage(image, for: button.state)
         }
     }
 }
@@ -95,10 +95,8 @@ extension AnimatedSink where Base: UIButton {
 // MARK: - UIImageView
 extension AnimatedSink where Base: UIImageView {
     public var image: Binder<UIImage?> {
-        return Binder(self.base) { imageView, image in
-            self.type.animate(view: imageView) {
-                (imageView as UIImageView).image = image
-            }
+        return bind { imageView, image in
+            (imageView as UIImageView).image = image
         }
     }
 }
@@ -113,24 +111,27 @@ extension Reactive where Base: NSLayoutConstraint {
 
 // MARK: - NSLayoutConstraint
 extension AnimatedSink where Base: NSLayoutConstraint {
-    public var constant: Binder<CGFloat> {
-        return Binder(self.base) { constraint, constant in
+    
+    public func bind<T>(with animation: @escaping ((NSLayoutConstraint, T)  -> Void)) -> Binder<T> {
+        var mutableSelf = self
+        return Binder(mutableSelf.base) { constraint, value in
             guard let view = constraint.firstItem as? UIView,
                 let superview = view.superview else { return }
-
-            self.type.animate(view: superview) {
-                constraint.constant = constant
+            mutableSelf.type.lazyAnimate(view: superview) {
+                animation(constraint, value)
             }
         }
     }
-    public var isActive: Binder<Bool> {
-        return Binder(self.base) { constraint, active in
-            guard let view = constraint.firstItem as? UIView,
-                let superview = view.superview else { return }
 
-            self.type.animate(view: superview) {
-                constraint.isActive = active
-            }
+    public var constant: Binder<CGFloat> {
+        return bind { constraint, constant in
+            constraint.constant = constant
+        }
+    }
+
+    public var isActive: Binder<Bool> {
+        return bind { constraint, active in
+            constraint.isActive = active
         }
     }
 }
