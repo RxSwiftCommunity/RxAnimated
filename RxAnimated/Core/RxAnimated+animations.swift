@@ -19,20 +19,20 @@ public enum FlipDirection {
 
 extension AnimatedSink where Base: UIView {
     /// cross-dissolve animation on `UIView`
-    public func fade(duration: TimeInterval) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: RxAnimationType.transition(.transitionCrossDissolve), duration: duration, animations: nil)
+    public func fade(duration: TimeInterval, delay: TimeInterval = 0) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.transition(.transitionCrossDissolve), duration: duration, delay: delay, animations: nil)
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 
     /// flip animation on `UIView`
-    public func flip(_ direction: FlipDirection, duration: TimeInterval) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: RxAnimationType.transition(direction.viewTransition), duration: duration, animations: nil)
+    public func flip(_ direction: FlipDirection, duration: TimeInterval, delay: TimeInterval = 0) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.transition(direction.viewTransition), duration: duration, delay: delay, animations: nil)
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 
     /// example of extending RxAnimated with a custom animation
-    public func tick(_ direction: FlipDirection = .right, duration: TimeInterval) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: RxAnimationType.spring(damping: 0.33, velocity: 0), duration: duration, setup: { view in
+    public func tick(_ direction: FlipDirection = .right, duration: TimeInterval, delay: TimeInterval = 0) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.spring(damping: 0.33, velocity: 0), duration: duration, delay: delay, setup: { view in
             view.alpha = 0
             view.transform = CGAffineTransform(rotationAngle: direction == .right ?  -0.3 : 0.3)
         }, animations: { view in
@@ -42,16 +42,16 @@ extension AnimatedSink where Base: UIView {
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 
-    public func animation(duration: TimeInterval, options: UIView.AnimationOptions = [], animations: @escaping () -> Void) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, animations: { _ in animations() })
+    public func animation(duration: TimeInterval, delay: TimeInterval = 0, options: UIView.AnimationOptions = [], animations: @escaping () -> Void) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, delay: delay, animations: { _ in animations() })
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
 
 extension AnimatedSink where Base: NSLayoutConstraint {
     /// auto layout animations
-    public func layout(duration: TimeInterval) -> AnimatedSink<Base> {
-        let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, animations: { view in
+    public func layout(duration: TimeInterval, delay: TimeInterval = 0) -> AnimatedSink<Base> {
+        let type = AnimationType<Base>(type: RxAnimationType.animation, duration: duration, delay: delay, animations: { view in
             view.layoutIfNeeded()
         })
         return AnimatedSink<Base>(base: self.base, type: type)
