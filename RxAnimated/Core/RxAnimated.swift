@@ -29,6 +29,7 @@ public enum RxAnimationType {
 public struct AnimationType<Base> {
     let type: RxAnimationType
     let duration: TimeInterval
+    let delay: TimeInterval
     let options: UIView.AnimationOptions
 
     let setup: ((UIView) -> Void)?
@@ -39,14 +40,16 @@ public struct AnimationType<Base> {
      * creates an animation "future"
      * - parameter type: animation type; spring, transition, standard
      * - parameter duration: animation duration
+     * - parameter delay: animation delay
      * - parameter options: animation options
      * - parameter setup: block of setup code to be executed before animation starts
      * - parameter animations: block of code to be executed during animation
      * - parameter completion: block of code to be executed after the animation has finished
      */
-    public init(type: RxAnimationType, duration: TimeInterval, options: UIView.AnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView) -> Void)?, completion: ((Bool) -> Void)? = nil) {
+    public init(type: RxAnimationType, duration: TimeInterval, delay: TimeInterval, options: UIView.AnimationOptions = [], setup: ((UIView)->Void)? = nil, animations: ((UIView) -> Void)?, completion: ((Bool) -> Void)? = nil) {
         self.type = type
         self.duration = duration
+        self.delay = delay
         self.options = options
         self.setup = setup
         self.animations = animations
@@ -70,7 +73,7 @@ public struct AnimationType<Base> {
 
             switch self.type {
             case .animation:
-                UIView.animate(withDuration: self.duration, delay: 0, options: self.options, animations: {
+                UIView.animate(withDuration: self.duration, delay: self.delay, options: self.options, animations: {
                     binding?()
                     self.animations?(view)
                 }, completion: self.completion)
@@ -80,7 +83,7 @@ public struct AnimationType<Base> {
                     self.animations?(view)
                 }, completion: self.completion)
             case .spring(let damping, let velocity):
-                UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: self.options, animations: {
+                UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: self.options, animations: {
                     binding?()
                     self.animations?(view)
                 }, completion: self.completion)
