@@ -75,7 +75,7 @@ public struct AnimationType<Base> {
                     self.animations?(view)
                 }, completion: self.completion)
             case .transition(let type):
-                UIView.transition(with: view, duration: self.duration, options: self.options.union(type), animations: {
+                UIView.transition(with: view.superview!, duration: self.duration, options: self.options.union(type), animations: {
                     binding?()
                     self.animations?(view)
                 }, completion: self.completion)
