@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1ED86A8823E52B0200845373 /* RxAnimated.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED86A8623E52B0200845373 /* RxAnimated.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED86A9323E52CCD00845373 /* RxAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED86A8F23E52CCD00845373 /* RxAnimated.swift */; };
-		1ED86A9423E52CCD00845373 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1ED86A9023E52CCD00845373 /* .gitkeep */; };
 		1ED86A9523E52CCD00845373 /* RxAnimated+bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED86A9123E52CCD00845373 /* RxAnimated+bindings.swift */; };
 		1ED86A9623E52CCD00845373 /* RxAnimated+animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED86A9223E52CCD00845373 /* RxAnimated+animations.swift */; };
 /* End PBXBuildFile section */
@@ -19,7 +18,6 @@
 		1ED86A8623E52B0200845373 /* RxAnimated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAnimated.h; sourceTree = "<group>"; };
 		1ED86A8723E52B0200845373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ED86A8F23E52CCD00845373 /* RxAnimated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAnimated.swift; sourceTree = "<group>"; };
-		1ED86A9023E52CCD00845373 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1ED86A9123E52CCD00845373 /* RxAnimated+bindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+bindings.swift"; sourceTree = "<group>"; };
 		1ED86A9223E52CCD00845373 /* RxAnimated+animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+animations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				1ED86A8F23E52CCD00845373 /* RxAnimated.swift */,
-				1ED86A9023E52CCD00845373 /* .gitkeep */,
 				1ED86A9123E52CCD00845373 /* RxAnimated+bindings.swift */,
 				1ED86A9223E52CCD00845373 /* RxAnimated+animations.swift */,
 			);
@@ -141,7 +138,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED86A9423E52CCD00845373 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
