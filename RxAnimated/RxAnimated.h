@@ -6,7 +6,7 @@
 //  Copyright © 2020 RxSwiftCommunity. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for RxAnimated.
 FOUNDATION_EXPORT double RxAnimatedVersionNumber;
