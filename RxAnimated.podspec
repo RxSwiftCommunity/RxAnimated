@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |cs|
-    s.source_files = 'RxAnimated/Core/**/*'
+    s.source_files = 'Sources/RxAnimated/**/*'
   end
 
 #  s.subspec 'Animations' do |cs|

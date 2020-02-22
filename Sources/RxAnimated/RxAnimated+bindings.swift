@@ -1,5 +1,6 @@
 import RxSwift
 import RxCocoa
+#if canImport(UIKit)
 
 // MARK: - Reactive ext on UIView
 
@@ -134,3 +135,5 @@ extension AnimatedSink where Base: NSLayoutConstraint {
         }
     }
 }
+
+#endif

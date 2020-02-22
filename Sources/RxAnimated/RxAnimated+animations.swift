@@ -1,6 +1,7 @@
 import RxSwift
 import RxCocoa
 
+#if canImport(UIKit)
 /// custom direction enumeration
 public enum FlipDirection {
     case left, right, top, bottom
@@ -48,6 +49,7 @@ extension AnimatedSink where Base: UIView {
     }
 }
 
+
 extension AnimatedSink where Base: NSLayoutConstraint {
     /// auto layout animations
     public func layout(duration: TimeInterval) -> AnimatedSink<Base> {
@@ -57,3 +59,5 @@ extension AnimatedSink where Base: NSLayoutConstraint {
         return AnimatedSink<Base>(base: self.base, type: type)
     }
 }
+
+#endif

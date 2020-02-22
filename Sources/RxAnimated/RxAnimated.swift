@@ -9,6 +9,7 @@ public struct RxAnimated {
     }
 }
 
+#if canImport(UIKit) 
 // MARK: - basic animation types
 
 /**
@@ -29,6 +30,7 @@ public enum RxAnimationType {
 public struct AnimationType<Base> {
     let type: RxAnimationType
     let duration: TimeInterval
+
     let options: UIView.AnimationOptions
 
     let setup: ((UIView) -> Void)?
@@ -99,7 +101,10 @@ public struct AnimationType<Base> {
                 || UIAccessibility.isReduceMotionEnabled
         }
     }
+  
 }
+
+
 
 // MARK: - animated reactive extensions
 
@@ -131,3 +136,5 @@ public struct AnimatedSink<Base> {
         self.type = type
     }
 }
+
+  #endif
