@@ -10,6 +10,7 @@ public struct RxAnimated {
 }
 
 #if canImport(UIKit) 
+import UIKit
 // MARK: - basic animation types
 
 /**

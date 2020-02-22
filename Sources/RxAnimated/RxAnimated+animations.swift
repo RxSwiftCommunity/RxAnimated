@@ -1,7 +1,8 @@
 import RxSwift
 import RxCocoa
-
 #if canImport(UIKit)
+import UIKit
+
 /// custom direction enumeration
 public enum FlipDirection {
     case left, right, top, bottom
