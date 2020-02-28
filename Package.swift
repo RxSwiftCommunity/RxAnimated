@@ -7,13 +7,14 @@ let package = Package(
     name: "RxAnimated",
     platforms: [
         .iOS(.v9),
-        .tvOS(.v10)
+        .tvOS(.v10),
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "RxAnimated",
             targets: ["RxAnimated"]),
+        .library(name: "RxCocoaRuntime", targets: ["RxAnimated"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "5.0.0")),
@@ -25,9 +26,9 @@ let package = Package(
             name: "RxAnimated",
             dependencies: [
                 "RxSwift",
-                "RxCocoa",]),
+                "RxCocoa",
+            ]),
         .testTarget(
             name: "RxAnimatedTests",
             dependencies: ["RxAnimated"]),
-    ]
-)
+    ])
