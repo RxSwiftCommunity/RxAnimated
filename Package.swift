@@ -30,5 +30,6 @@ let package = Package(
             ]),
         .testTarget(
             name: "RxAnimatedTests",
-            dependencies: ["RxAnimated"]),
+            dependencies: ["RxAnimated","RxSwift",
+            "RxCocoa","RxTest", "RxBlocking"]),
     ])
