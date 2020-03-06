@@ -2,16 +2,16 @@ use_frameworks!
 
 target 'RxAnimated_Example' do
 
-  pod 'RxSwift', '~> 5.0.0'
-  pod 'RxCocoa', '~> 5.0.0'
+  pod 'RxSwift', '~> 5.1.0'
+  pod 'RxCocoa', '~> 5.1.0'
   pod 'RxAnimated', :path => '../'
 
 end
 
 target 'RxAnimated-Example-AppleTV' do
 
-  pod 'RxSwift', '~> 5.0.0'
-  pod 'RxCocoa', '~> 5.0.0'
+  pod 'RxSwift', '~> 5.1.0'
+  pod 'RxCocoa', '~> 5.1.0'
   pod 'RxAnimated', :path => '../'
 
 end

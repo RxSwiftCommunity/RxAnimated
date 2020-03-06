@@ -17,11 +17,16 @@
 		63B65A9A1FB9F59200C630B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B65A981FB9F59200C630B5 /* Main.storyboard */; };
 		63B65A9C1FB9F59200C630B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B65A9B1FB9F59200C630B5 /* Assets.xcassets */; };
 		63B65ABD1FB9FB8700C630B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		9667B5B320A03EFA5F9E9A09 /* Pods_RxAnimated_Example_AppleTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915D78FCE8F106F68FFB096A /* Pods_RxAnimated_Example_AppleTV.framework */; };
+		D2EA27DECD69CAB631B0888A /* Pods_RxAnimated_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA3383E42875F78073EA655 /* Pods_RxAnimated_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C7191D437001371A8D26BC2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1CEAC8954D3F9CFA7CB1AFEE /* Pods-RxAnimated_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAnimated_Example.debug.xcconfig"; path = "Target Support Files/Pods-RxAnimated_Example/Pods-RxAnimated_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4D1CED6B4F445607D244A2F5 /* RxAnimated.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RxAnimated.podspec; path = ../RxAnimated.podspec; sourceTree = "<group>"; };
+		507B3E6E7E967AD85C09A841 /* Pods-RxAnimated-Example-AppleTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAnimated-Example-AppleTV.release.xcconfig"; path = "Target Support Files/Pods-RxAnimated-Example-AppleTV/Pods-RxAnimated-Example-AppleTV.release.xcconfig"; sourceTree = "<group>"; };
+		5324A5266CDC3A4B62660258 /* Pods-RxAnimated_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAnimated_Example.release.xcconfig"; path = "Target Support Files/Pods-RxAnimated_Example/Pods-RxAnimated_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RxAnimated_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxAnimated_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,9 @@
 		63B65A9B1FB9F59200C630B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63B65A9D1FB9F59200C630B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66ECEEF032088AC8F596BB00 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7CA3383E42875F78073EA655 /* Pods_RxAnimated_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxAnimated_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915D78FCE8F106F68FFB096A /* Pods_RxAnimated_Example_AppleTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxAnimated_Example_AppleTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8F7A8103FDDE3665D75A3A /* Pods-RxAnimated-Example-AppleTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAnimated-Example-AppleTV.debug.xcconfig"; path = "Target Support Files/Pods-RxAnimated-Example-AppleTV/Pods-RxAnimated-Example-AppleTV.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2EA27DECD69CAB631B0888A /* Pods_RxAnimated_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9667B5B320A03EFA5F9E9A09 /* Pods_RxAnimated_Example_AppleTV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +74,7 @@
 				63B65A931FB9F59100C630B5 /* Example for RxAnimated AppleTV */,
 				607FACD11AFB9204008FA782 /* Products */,
 				D918CCBAEDD098DFD4DCDDBB /* Pods */,
+				90097494BE82623458246CE5 /* Frameworks */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -122,9 +133,22 @@
 			path = "Example for RxAnimated AppleTV";
 			sourceTree = "<group>";
 		};
+		90097494BE82623458246CE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				915D78FCE8F106F68FFB096A /* Pods_RxAnimated_Example_AppleTV.framework */,
+				7CA3383E42875F78073EA655 /* Pods_RxAnimated_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D918CCBAEDD098DFD4DCDDBB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				BB8F7A8103FDDE3665D75A3A /* Pods-RxAnimated-Example-AppleTV.debug.xcconfig */,
+				507B3E6E7E967AD85C09A841 /* Pods-RxAnimated-Example-AppleTV.release.xcconfig */,
+				1CEAC8954D3F9CFA7CB1AFEE /* Pods-RxAnimated_Example.debug.xcconfig */,
+				5324A5266CDC3A4B62660258 /* Pods-RxAnimated_Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -136,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RxAnimated_Example" */;
 			buildPhases = (
+				33B8499F33E1F13243ECADBD /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
+				FCC2C922B461EBEE773F87EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63B65ABA1FB9F59200C630B5 /* Build configuration list for PBXNativeTarget "RxAnimated-Example-AppleTV" */;
 			buildPhases = (
+				F67AA144F90965F6D9D7B415 /* [CP] Check Pods Manifest.lock */,
 				63B65A8E1FB9F59100C630B5 /* Sources */,
 				63B65A8F1FB9F59100C630B5 /* Frameworks */,
 				63B65A901FB9F59100C630B5 /* Resources */,
+				9C52BA308EF678BB6CCF7EDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +255,101 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33B8499F33E1F13243ECADBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxAnimated_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C52BA308EF678BB6CCF7EDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxAnimated-Example-AppleTV/Pods-RxAnimated-Example-AppleTV-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAnimated-tvOS/RxAnimated.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-tvOS/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay-tvOS/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-tvOS/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxAnimated-Example-AppleTV/Pods-RxAnimated-Example-AppleTV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F67AA144F90965F6D9D7B415 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxAnimated-Example-AppleTV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCC2C922B461EBEE773F87EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxAnimated_Example/Pods-RxAnimated_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAnimated-iOS/RxAnimated.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay-iOS/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxAnimated_Example/Pods-RxAnimated_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		607FACCC1AFB9204008FA782 /* Sources */ = {
@@ -386,6 +509,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CEAC8954D3F9CFA7CB1AFEE /* Pods-RxAnimated_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxAnimated/Info.plist;
@@ -401,6 +525,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5324A5266CDC3A4B62660258 /* Pods-RxAnimated_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxAnimated/Info.plist;
@@ -416,6 +541,7 @@
 		};
 		63B65AB41FB9F59200C630B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB8F7A8103FDDE3665D75A3A /* Pods-RxAnimated-Example-AppleTV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -441,6 +567,7 @@
 		};
 		63B65AB51FB9F59200C630B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 507B3E6E7E967AD85C09A841 /* Pods-RxAnimated-Example-AppleTV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
