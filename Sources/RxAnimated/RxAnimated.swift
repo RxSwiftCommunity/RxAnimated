@@ -1,5 +1,6 @@
 import RxSwift
 import RxCocoa
+import UIKit
 
 public struct RxAnimated {
     public static let areAnimationsEnabled = BehaviorRelay(value: true)
@@ -9,8 +10,6 @@ public struct RxAnimated {
     }
 }
 
-#if canImport(UIKit) 
-import UIKit
 // MARK: - basic animation types
 
 /**
@@ -137,5 +136,3 @@ public struct AnimatedSink<Base> {
         self.type = type
     }
 }
-
-  #endif

@@ -1,6 +1,5 @@
 import RxSwift
 import RxCocoa
-#if canImport(UIKit)
 import UIKit
 
 /// custom direction enumeration
@@ -61,4 +60,3 @@ extension AnimatedSink where Base: NSLayoutConstraint {
     }
 }
 
-#endif
