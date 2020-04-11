@@ -1,5 +1,6 @@
 import RxSwift
 import RxCocoa
+import UIKit
 
 public struct RxAnimated {
     public static let areAnimationsEnabled = BehaviorRelay(value: true)
@@ -29,6 +30,7 @@ public enum RxAnimationType {
 public struct AnimationType<Base> {
     let type: RxAnimationType
     let duration: TimeInterval
+
     let options: UIView.AnimationOptions
 
     let setup: ((UIView) -> Void)?
@@ -99,7 +101,10 @@ public struct AnimationType<Base> {
                 || UIAccessibility.isReduceMotionEnabled
         }
     }
+  
 }
+
+
 
 // MARK: - animated reactive extensions
 
