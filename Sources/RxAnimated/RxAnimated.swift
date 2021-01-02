@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+
 import RxSwift
 import RxCocoa
 import UIKit
@@ -136,3 +138,5 @@ public struct AnimatedSink<Base> {
         self.type = type
     }
 }
+
+#endif
