@@ -16,7 +16,7 @@ let package = Package(
         .library(name: "RxCocoaRuntime", targets: ["RxAnimated"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "5.1.1")),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
     ],
     targets: [
         .target(

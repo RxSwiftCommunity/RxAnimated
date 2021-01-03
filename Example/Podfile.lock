@@ -1,22 +1,22 @@
 PODS:
   - RxAnimated (0.8.1):
     - RxAnimated/Core (= 0.8.1)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6.0.0)
+    - RxSwift (~> 6.0.0)
   - RxAnimated/Core (0.8.1):
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+    - RxCocoa (~> 6.0.0)
+    - RxSwift (~> 6.0.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
 
 DEPENDENCIES:
   - RxAnimated (from `../`)
-  - RxCocoa (~> 5.1.0)
-  - RxSwift (~> 5.1.0)
+  - RxCocoa (~> 6.0.0)
+  - RxSwift (~> 6.0.0)
 
 SPEC REPOS:
   trunk:
@@ -29,11 +29,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RxAnimated: 5181b7b8369e8cb7ecd66d91110d84f1bb0edb64
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxAnimated: 59e0464734a1e728aaf3d8dbf29613b32c0e9dd0
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
 
-PODFILE CHECKSUM: 0fde4b5914dec89a7a84760211a9ae5223a647e6
+PODFILE CHECKSUM: 7d22d4ad81fb04dc7cf36be978beb43332a3b5d0
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0
