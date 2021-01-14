@@ -91,11 +91,11 @@
 /* Begin PBXFileReference section */
 		1ED86A8323E52B0200845373 /* RxAnimated.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAnimated.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED86A8623E52B0200845373 /* RxAnimated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAnimated.h; sourceTree = "<group>"; };
-		1ED86A8723E52B0200845373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EEBCBFA23E560D30034B6CF /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = Carthage/Checkouts/RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
 		1EF378932441DD7E006BF7C9 /* RxAnimated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAnimated.swift; sourceTree = "<group>"; };
 		1EF378942441DD7E006BF7C9 /* RxAnimated+bindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+bindings.swift"; sourceTree = "<group>"; };
 		1EF378952441DD7E006BF7C9 /* RxAnimated+animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxAnimated+animations.swift"; sourceTree = "<group>"; };
+		C5E3559F25A04AA700F3D7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +164,8 @@
 		1EF378922441DD7E006BF7C9 /* RxAnimated */ = {
 			isa = PBXGroup;
 			children = (
+				C5E3559F25A04AA700F3D7AA /* Info.plist */,
 				1ED86A8623E52B0200845373 /* RxAnimated.h */,
-				1ED86A8723E52B0200845373 /* Info.plist */,
 				1EF378932441DD7E006BF7C9 /* RxAnimated.swift */,
 				1EF378942441DD7E006BF7C9 /* RxAnimated+bindings.swift */,
 				1EF378952441DD7E006BF7C9 /* RxAnimated+animations.swift */,
