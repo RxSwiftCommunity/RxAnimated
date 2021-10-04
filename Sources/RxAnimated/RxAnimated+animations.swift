@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+
 import RxSwift
 import RxCocoa
 import UIKit
@@ -60,3 +62,4 @@ extension AnimatedSink where Base: NSLayoutConstraint {
     }
 }
 
+#endif
